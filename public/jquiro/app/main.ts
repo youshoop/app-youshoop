@@ -1,10 +1,10 @@
-///<reference path=".././com/jquiro/progress_bar/JQProgressBar.ts"/>
-/// <reference path=".././com/jquiro/tree/JQTree.ts"/>
+///<reference path=".././com/progress_bar/JQProgressBar.ts"/>
+/// <reference path=".././com/tree/JQTree.ts"/>
 
 
 
-import jqPro = require('.././com/jquiro/progress_bar/JQProgressBar');
-import jqTr = require('.././com/jquiro/tree/JQTree');
+import jqPro = require('.././com/progress_bar/JQProgressBar');
+import jqTr = require('.././com/tree/JQTree');
 
 
 

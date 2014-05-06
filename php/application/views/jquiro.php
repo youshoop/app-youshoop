@@ -4,20 +4,17 @@
     <title>Progress Bar</title>
 <!--     <link rel="stylesheet" type="text/css" href="dep/css/bootstrap.min.css"> -->
 <!--     <link rel="stylesheet" type="text/css" href="dep/css/bootstrap.min.css"> -->
-    <link rel="stylesheet" type="text/css" href="dep/css/bootstrap-theme.min.css">
-    <link rel="stylesheet" type="text/css" href="dep/css/jquiro.css">
-    <link rel="stylesheet" type="text/css" href="dep/css/font-awesome.min.css">
-    <link href="dep/css/magic.min.css" rel="stylesheet" />
-    <link href="dep/css/animate.min.css" rel="stylesheet" />
+<!--     <link rel="stylesheet" type="text/css" href="dep/css/bootstrap-theme.min.css"> -->
+<!--     <link rel="stylesheet" type="text/css" href="dep/css/jquiro.css"> -->
+<!--     <link rel="stylesheet" type="text/css" href="dep/css/font-awesome.min.css"> -->
+<!--     <link href="dep/css/magic.min.css" rel="stylesheet" /> -->
+<!--     <link href="dep/css/animate.min.css" rel="stylesheet" /> -->
     
     
     <link href="<?php echo base_url('jquiro/theme/youshoopblue.css');?>" rel="stylesheet" type="text/css">
-    <link href="<?php echo base_url('jquiro/youshoopblue.css');?>" rel="stylesheet" type="text/css">
-    <link href="<?php echo base_url('jquiro/youshoopblue.css');?>" rel="stylesheet" type="text/css">
-    <link href="<?php echo base_url('jquiro/youshoopblue.css');?>" rel="stylesheet" type="text/css">
-    <link href="<?php echo base_url('jquiro/youshoopblue.css');?>" rel="stylesheet" type="text/css">
-    <link href="<?php echo base_url('jquiro/youshoopblue.css');?>" rel="stylesheet" type="text/css">
-    <link href="<?php echo base_url('jquiro/youshoopblue.css');?>" rel="stylesheet" type="text/css">
+    <link href="<?php echo base_url('jquiro/theme/jquiro.css');?>" rel="stylesheet" type="text/css">
+    <link href="<?php echo base_url('jquiro/theme/font-awesome.min.css');?>" rel="stylesheet" type="text/css">
+
     
 </head>
 <body>
@@ -33,7 +30,7 @@
 
 
     
-    <script src="./dep/js/require.js" data-main="app/main.js"></script>
+    <script src="<?php echo base_url('jquiro/dep/require.js');?>" data-main="app/main.js"></script>
 
 
     

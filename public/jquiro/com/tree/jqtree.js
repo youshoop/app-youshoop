@@ -1,4 +1,4 @@
-define(["require", "exports", '.././base_component/JQElement', '.././icon/jqicon'], function(require, exports, jqE, jqI) {
+define(["require", "exports", '.././base_component/JQElement', '.././icon/JQIcon'], function(require, exports, jqE, jqI) {
     /**
     @ Autor : Yonatan Alexis Quintero Rodriguez
     @ Version: 0.1

@@ -14,7 +14,8 @@
 | path to your installation.
 |
 */
-$config['base_url']	= 'http://localhost:8080/app-youshoop/public/';
+$config['base_url']	= 'http' . (isset($_SERVER['HTTPS']) ? 's' : '' ) . '://' .$_SERVER['HTTP_HOST'] . '/app-youshoop/public/';
+
 
 /*
 |--------------------------------------------------------------------------

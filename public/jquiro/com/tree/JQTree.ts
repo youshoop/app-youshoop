@@ -1,7 +1,7 @@
 /// <reference path=".././base_component/JQElement.ts" />
-/// <reference path="../icon/jqicon.ts" />
+/// <reference path="../icon/JQIcon.ts" />
 import jqE = require('.././base_component/JQElement');
-import jqI = require('.././icon/jqicon');
+import jqI = require('.././icon/JQIcon');
 /**
 @ Autor : Yonatan Alexis Quintero Rodriguez
 @ Version: 0.1

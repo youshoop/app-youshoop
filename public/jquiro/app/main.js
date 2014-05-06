@@ -1,6 +1,6 @@
-///<reference path=".././com/jquiro/progress_bar/JQProgressBar.ts"/>
-/// <reference path=".././com/jquiro/tree/JQTree.ts"/>
-define(["require", "exports", '.././com/jquiro/progress_bar/JQProgressBar', '.././com/jquiro/tree/JQTree'], function(require, exports, jqPro, jqTr) {
+///<reference path=".././com/progress_bar/JQProgressBar.ts"/>
+/// <reference path=".././com/tree/JQTree.ts"/>
+define(["require", "exports", '.././com/progress_bar/JQProgressBar', '.././com/tree/JQTree'], function(require, exports, jqPro, jqTr) {
     var sectProg = document.getElementById('progress');
 
     var progressBarInfo = new jqPro.jqProgressBarInfo(80, 'CSS 3');
