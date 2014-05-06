@@ -1,37 +1,37 @@
-.jq-Tree-Df i, .jq-Tree-Df span {
-    cursor: pointer;
-}
-
-.jq-Tree-Branch-Df {
-    font-weight: bold;
-}
-
-.jq-Tree-Leaf-Df {
-}
-
+.jq-Tree-Df i, .jq-Tree-Df span { 
+    cursor: pointer; 
+} 
+  
+.jq-Tree-Branch-Df { 
+    font-weight: bold; 
+} 
+  
+.jq-Tree-Leaf-Df { 
+} 
+  
 /*** animaciones ***/
-.jq-Hide {
-    height: 0;
-    overflow: hidden;
-    -webkit-transition: all 0.1s ease-out;
-    -moz-transition: all 0.1s ease-out;
-    -o-transition: all 0.1s ease-out;
-    transition: all 0.1s ease-out;
-}
-
-.jq-Show {
-    height: 1.2em;
-    -webkit-transition: all 0.1s ease-in;
-    -moz-transition: all 0.1s ease-in;
-    -o-transition: all 0.1s ease-in;
-    transition: all 0.1s ease-in;
-}
-
-
-.jq-Fill-Left-in {
-    
-    -webkit-transition: all 0.5s ease;
-    -moz-transition: all 0.5s ease;
-    -o-transition: all 0.5s ease;
-    transition: all 0.5s ease;
-}
+.jq-Hide { 
+    height: 0; 
+    overflow: hidden; 
+    -webkit-transition: all 0.1s ease-out; 
+    -moz-transition: all 0.1s ease-out; 
+    -o-transition: all 0.1s ease-out; 
+    transition: all 0.1s ease-out; 
+} 
+  
+.jq-Show { 
+    height: 1.2em; 
+    -webkit-transition: all 0.1s ease-in; 
+    -moz-transition: all 0.1s ease-in; 
+    -o-transition: all 0.1s ease-in; 
+    transition: all 0.1s ease-in; 
+} 
+  
+  
+.jq-Fill-Left-in { 
+      
+    -webkit-transition: all 0.5s ease; 
+    -moz-transition: all 0.5s ease; 
+    -o-transition: all 0.5s ease; 
+    transition: all 0.5s ease; 
+} 

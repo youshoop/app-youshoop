@@ -1,5 +1,5 @@
-/// <reference path=".././base_component/JQElement.ts" />
-import jqE = require('.././base_component/JQElement');
+/// <reference path=".././htmlObject/HtmlObject.ts" />
+import HtmlObject = require('.././htmlObject/HtmlObject');
 /**
 @ Autor : Yonatan Alexis Quintero Rodriguez
 @ Version: 0.1
@@ -7,7 +7,7 @@ import jqE = require('.././base_component/JQElement');
 * Libreria basada en los iconos de font awesome de bootstrap (http://fortawesome.github.io/)
 **/
 
-export class jqIcon extends jqE.i {
+export class JIcon extends HtmlObject.i {
 
 
     private type: number;
@@ -15,9 +15,9 @@ export class jqIcon extends jqE.i {
 
     constructor(_jqLabel: string, type: number) {
 
-        super('jqIcon');
+        super('JIcon');
 
-        this.setJQLabel(_jqLabel);
+        this.setjLabel(_jqLabel);
         this.type = type;
         this.collectionClass = new Array<string>();
         this.setType(this.type);
@@ -34,11 +34,11 @@ export class jqIcon extends jqE.i {
         this.type = _type;
         switch (this.type) {
 
-            case jqFontAwesome.LIST_ICONS:
+            case jFontAwesome.LIST_ICONS:
 
-                this.collectionClass.push(jqFontAwesome.FA_LI);
-                this.collectionClass.push(jqFontAwesome.FA);
-                this.collectionClass.push(this.getJQLabel());
+                this.collectionClass.push(jFontAwesome.FA_LI);
+                this.collectionClass.push(jFontAwesome.FA);
+                this.collectionClass.push(this.getjLabel());
 
                 this.addCollectionClass(this.collectionClass);
 
@@ -78,7 +78,7 @@ export class jqIcon extends jqE.i {
 * The complete set of 369 icons in Font Awesome 4.0.3
 **/
 
-export class jqFontAwesome {
+export class jFontAwesome {
 
 
 	static FA = 'fa'

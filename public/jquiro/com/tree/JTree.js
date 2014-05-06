@@ -1,4 +1,4 @@
-define(["require", "exports", '.././base_component/JQElement', '.././icon/JQIcon'], function(require, exports, jqE, jqI) {
+define(["require", "exports", '.././base_component/JQElement', '.././icon/jqicon'], function(require, exports, jqE, jqI) {
     /**
     @ Autor : Yonatan Alexis Quintero Rodriguez
     @ Version: 0.1
@@ -6,14 +6,12 @@ define(["require", "exports", '.././base_component/JQElement', '.././icon/JQIcon
     Estructura arbol
     **/
     var jqTree = (function () {
-        function jqTree(_jqLabel) {
+        function jqTree() {
             this.tree = new jqE.ul('jqTree');
-            this.tree.setJQLabel(_jqLabel);
 
             this.branchList = new Array();
 
             this.init();
-            _jqLabel = null;
         }
         jqTree.prototype.init = function () {
             this.tree.addClass(jqI.jqFontAwesome.FA_UL);

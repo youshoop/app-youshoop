@@ -2,22 +2,22 @@
 @ Autor : Yonatan Alexis Quintero Rodriguez
 @ Version: 0.1
 @ Fecha : 16 _ 03 _ 2014
-* clases de jquiro
+* clases de JHtmlObjectuiro
 **/
 
-export class jqStyle {
+export class JStyle {
 
     /***CLASES PARA COMPONENTE TREE***/
 
-    static JQ_TREE_DF = 'jq-Tree-Df';
-    static JQ_TREE_BRANCH_DF = 'jq-Tree-Branch-Df';
-    static JQ_TREE_LEAF_DF = 'jq-Tree-Leaf-Df';
+    static JHtmlObject_TREE_DF = 'JHtmlObject-Tree-Df';
+    static JHtmlObject_TREE_BRANCH_DF = 'JHtmlObject-Tree-Branch-Df';
+    static JHtmlObject_TREE_LEAF_DF = 'JHtmlObject-Tree-Leaf-Df';
 
     /******CLASES DE ANIMACIONES *******/
 
-    static JQ_HIDE = 'jq-Hide';
-    static JQ_SHOW = 'jq-Show';
-    static JQ_FILL_LEFT_IN = 'jq-Fill-Left-in';
+    static JHtmlObject_HIDE = 'JHtmlObject-Hide';
+    static JHtmlObject_SHOW = 'JHtmlObject-Show';
+    static JHtmlObject_FILL_LEFT_IN = 'JHtmlObject-Fill-Left-in';
 
 }
 
@@ -28,7 +28,7 @@ export class jqStyle {
 * Lista de eventos javascript
 **/
 
-export class jqEvent {
+export class JEvent {
 
     static BLUR = 'blur';
     static CHANGE = 'change';
@@ -56,7 +56,7 @@ export class jqEvent {
 * Observador de clases y eventos
 **/
 
-export class jqObserver {
+export class JObserver {
 
     private static collectionClassName = new Array<string>();
     private static collectionClassKey = new Array<number>();
@@ -95,95 +95,95 @@ export class jqObserver {
 @ Autor : Yonatan Alexis Quintero Rodriguez
 @ Version: 0.1
 @ Fecha :12/03/2014
-* Atributos y metodos bases para los componentes JQuiro
+* Atributos y metodos bases para los componentes JHtmlObjectuiro
 **/
 
-export class jqBaseComponent {
+export class HtmlObject {
 
-    jqElementHtml: HTMLElement;
-    private jqLabel: string;
-    private jqClassName: string;
+    jBaseElement: HTMLElement;
+    private jLabel: string;
+    private jClassName: string;
 
     constructor(_baseEle: HTMLElement) {
 
-        this.jqElementHtml = _baseEle;
+        this.jBaseElement = _baseEle;
         _baseEle = null;
     }
 
-    /** API JQBaseComponent **/
+    /** API HtmlObject **/
 
 
-    getJQLabel(): string {
+    getjLabel(): string {
 
-        return this.jqLabel;
+        return this.jLabel;
     }
 
-    setJQLabel(_jqLabel: string) {
+    setjLabel(_jLabel: string) {
 
-        this.jqLabel = _jqLabel;
-        _jqLabel = null;
+        this.jLabel = _jLabel;
+        _jLabel = null;
     }
 
-    getJQClassName(): string {
+    getjClassName(): string {
 
-        return this.jqClassName;
+        return this.jClassName;
     }
 
-    setJQClassName(_jqclassName: string) {
+    setjClassName(_jClassName: string) {
 
-        _jqclassName = typeof _jqclassName === 'undefined' ? this.getNodeName().toLowerCase() : _jqclassName.replace(/ /g, '_');
-        this.jqClassName = _jqclassName;
-        jqObserver.registerClass(this.jqClassName);
-        _jqclassName = null;
-    }
-    /**
-     Agrega un objeto jqBaseComponent
-    */
-    appendElement(_jqElement: jqBaseComponent) {
-
-        this.jqElementHtml.appendChild(_jqElement.toHtml());
-        _jqElement = null;
+        _jClassName = typeof _jClassName === 'undefined' ? this.getNodeName().toLowerCase() : _jClassName.replace(/ /g, '_');
+        this.jClassName = _jClassName;
+        JObserver.registerClass(this.jClassName);
+        _jClassName = null;
     }
     /**
-    Inserta un objeto antes del indicado.
+     Agrega un objeto HtmlObject
     */
-    appendBeforeElement(_jqElement: jqBaseComponent, jqTargetElement: jqBaseComponent) {
+    appendElement(_jElement: HtmlObject) {
 
-        this.jqElementHtml.insertBefore(_jqElement.toHtml(), jqTargetElement.toHtml());
-
+        this.jBaseElement.appendChild(_jElement.toHtml());
+        _jElement = null;
     }
     /**
     Inserta un objeto antes del indicado.
     */
-    appendAfertElement(_jqElement: jqBaseComponent, jqTargetElement: jqBaseComponent) {
+    appendBeforeElement(_jElement: HtmlObject, jTargetElement: HtmlObject) {
 
-        if (this.getLastChildElement() === jqTargetElement.toHtml()) {
+        this.jBaseElement.insertBefore(_jElement.toHtml(), jTargetElement.toHtml());
 
-            this.appendElement(_jqElement);
+    }
+    /**
+    Inserta un objeto antes del indicado.
+    */
+    appendAfertElement(_jElement: HtmlObject, jTargetElement: HtmlObject) {
+
+        if (this.getLastChildElement() === jTargetElement.toHtml()) {
+
+            this.appendElement(_jElement);
 
         } else {
 
-            this.jqElementHtml.insertBefore(_jqElement.toHtml(), jqTargetElement.getNextSiblingElement());
+            this.jBaseElement.insertBefore(_jElement.toHtml(), jTargetElement.getNextSiblingElement());
         }
 
     }
     /**
-    Reemplaza un objeto jqBaseComponent por uno nuevo
+    Reemplaza un objeto HtmlObject por uno nuevo
     */
-    replaceElement(_jqElement: jqBaseComponent, _oldJqElement: jqBaseComponent) {
+    replaceElement(_jElement: HtmlObject, _oldJElement: HtmlObject) {
 
-        this.jqElementHtml.replaceChild(_jqElement.toHtml(), _oldJqElement.toHtml());
-        _jqElement = _oldJqElement = null;
+        this.jBaseElement.replaceChild(_jElement.toHtml(), _oldJElement.toHtml());
+        _jElement = _oldJElement = null;
     }
     /**
-    Elimina un objeto jqBaseComponent
+    Elimina un objeto HtmlObject
     */
-    removeElement(_jqElement: jqBaseComponent) {
+    removeElement(_jElement: HtmlObject) {
 
-        this.removeChildElement(_jqElement.toHtml());
+        this.removeChildElement(_jElement.toHtml());
     }
     /**
-    Elimina todos los objetos jqBaseComponent
+    Elimina todos los objetos HtmlObject
     */
     removeAllElements() {
 
@@ -204,7 +204,7 @@ export class jqBaseComponent {
     */
     removeChildElement(_node: Node) {
 
-        this.jqElementHtml.removeChild(_node);
+        this.jBaseElement.removeChild(_node);
         _node = null;
     }
     /**
@@ -212,35 +212,35 @@ export class jqBaseComponent {
     */
     remove() {
 
-        this.getParentElement().removeChild(this.jqElementHtml);
+        this.getParentElement().removeChild(this.jBaseElement);
     }
     /**
     Retorna el tamano del childNodes
     */
     getChildNodesElementsLength(): number {
 
-        return this.jqElementHtml.childNodes.length;
+        return this.jBaseElement.childNodes.length;
     }
     /**
     Retorna  childNodes
     */
     getChildNodesElements(): NodeList {
 
-        return this.jqElementHtml.childNodes;
+        return this.jBaseElement.childNodes;
     }
     /**
        Retorna el nodo del  childNodes
      */
     getChildNodeElement(_index): Node {
 
-        return this.jqElementHtml.childNodes[_index];
+        return this.jBaseElement.childNodes[_index];
     }
     /**
     Retorna el primer hijo
     */
     getFirstChildElement(): Node {
 
-        return this.jqElementHtml.firstChild;
+        return this.jBaseElement.firstChild;
     }
 
     /**
@@ -248,14 +248,14 @@ export class jqBaseComponent {
      */
     getLastChildElement(): Node {
 
-        return this.jqElementHtml.lastChild;
+        return this.jBaseElement.lastChild;
     }
     /**
      Retorna el siguiente hermano
      */
     getNextSiblingElement(): Node {
 
-        return this.jqElementHtml.nextSibling;
+        return this.jBaseElement.nextSibling;
     }
 
     /**
@@ -263,23 +263,23 @@ export class jqBaseComponent {
     */
     getParentElement(): Node {
 
-        return this.jqElementHtml.parentNode;
+        return this.jBaseElement.parentNode;
     }
 
     /**
      Comprueba si dos elementos son iguales
     */
-    isEqualElement(_jqElement: jqBaseComponent): boolean {
+    isEqualElement(_jElement: HtmlObject): boolean {
 
-        return this.jqElementHtml.isEqualNode(_jqElement.toHtml());
+        return this.jBaseElement.isEqualNode(_jElement.toHtml());
 
     }
     /**
     Comprueba si dos objetos son los mismos
     */
-    equals(_jqElement: jqBaseComponent): boolean {
+    equals(_jElement: HtmlObject): boolean {
 
-        return this.getId() === _jqElement.getId();
+        return this.getId() === _jElement.getId();
     }
 
     /**
@@ -287,20 +287,20 @@ export class jqBaseComponent {
     */
     createAutoId() {
 
-        this.jqElementHtml.id = this.jqClassName + "[" + jqObserver.nextKey(this.jqClassName) + "]";
+        this.jBaseElement.id = this.jClassName + "[" + JObserver.nextKey(this.jClassName) + "]";
     }
     /**
     Clona  este objeto
     */
-    //cloneElement(): jqBaseComponent {
+    //cloneElement(): HtmlObject {
 
 
     //    var _tmpElement = this;
 
 
-    //    _tmpElement.jqElementHtml = <HTMLElement> _tmpElement.jqElementHtml.cloneNode(true);
-    //    var _class = _tmpElement.getJQClassName();
-    //    _tmpElement.setJQClassName(_class + '[cloned]');
+    //    _tmpElement.jBaseElement = <HTMLElement> _tmpElement.jBaseElement.cloneNode(true);
+    //    var _class = _tmpElement.getjClassName();
+    //    _tmpElement.setjClassName(_class + '[cloned]');
     //    //var _length = _tmpElement.getChildNodesElementsLength();
     //    //for (var i = _length - 1; i >= 0; i--) {
 
@@ -314,7 +314,7 @@ export class jqBaseComponent {
 
     toHtml(): HTMLElement {
 
-        return this.jqElementHtml;
+        return this.jBaseElement;
     }
 
 
@@ -323,12 +323,12 @@ export class jqBaseComponent {
 
     addEvent(_event: string, _function) {
 
-        this.jqElementHtml.addEventListener(_event, _function, false);
+        this.jBaseElement.addEventListener(_event, _function, false);
     }
 
     removeEvent(_event: string, _function) {
 
-        this.jqElementHtml.removeEventListener(_event, _function, false);
+        this.jBaseElement.removeEventListener(_event, _function, false);
     }
 
 
@@ -337,19 +337,19 @@ export class jqBaseComponent {
 
     getId(): string {
 
-        return this.jqElementHtml.id;
+        return this.jBaseElement.id;
     }
 
     setId(_id: string) {
 
-        this.jqElementHtml.id = _id;
+        this.jBaseElement.id = _id;
         _id = null;
 
     }
 
     existId(_id: string): boolean {
 
-        return this.jqElementHtml.id == _id;
+        return this.jBaseElement.id == _id;
         _id = null;
     }
 
@@ -357,7 +357,7 @@ export class jqBaseComponent {
 
     addClass(_class: string) {
 
-        this.jqElementHtml.classList.add(_class);
+        this.jBaseElement.classList.add(_class);
         _class = null;
     }
 
@@ -379,7 +379,7 @@ export class jqBaseComponent {
 
     removeClass(_class: string) {
 
-        this.jqElementHtml.classList.remove(_class);
+        this.jBaseElement.classList.remove(_class);
         _class = null;
     }
 
@@ -414,37 +414,37 @@ export class jqBaseComponent {
 
     toggleClass(_class: string) {
 
-        this.jqElementHtml.classList.toggle(_class);
+        this.jBaseElement.classList.toggle(_class);
         _class = null;
     }
 
     exitsClass(_class: string): boolean {
 
-        return this.jqElementHtml.classList.contains(_class);
+        return this.jBaseElement.classList.contains(_class);
         _class = null;
     }
 
     countClass(): number {
 
-        return this.jqElementHtml.classList.length;
+        return this.jBaseElement.classList.length;
     }
 
     getItemClass(_index: number): string {
 
-        return this.jqElementHtml.classList.item(_index);
+        return this.jBaseElement.classList.item(_index);
         _index = null;
     }
 
     /****** API DATASET *********/
 
     getDateSet(): DOMStringMap {
-        return this.jqElementHtml.dataset;
+        return this.jBaseElement.dataset;
 
     }
 
     addDataSet(_key: string, _value) {
 
-        this.jqElementHtml.dataset[_key] = _value;
+        this.jBaseElement.dataset[_key] = _value;
         _key = _value = null;
     }
 
@@ -452,53 +452,53 @@ export class jqBaseComponent {
 
     getInnerHtml(): string {
 
-        return this.jqElementHtml.innerHTML;
+        return this.jBaseElement.innerHTML;
     }
 
     setInnerHtml(_innerHtml: string) {
 
-        this.jqElementHtml.innerHTML = _innerHtml;
+        this.jBaseElement.innerHTML = _innerHtml;
         _innerHtml = null;
     }
 
     getInnerText(): string {
 
-        return this.jqElementHtml.innerText;
+        return this.jBaseElement.innerText;
     }
 
     setInnerText(_innerText: string) {
 
-        this.jqElementHtml.innerText = _innerText;
+        this.jBaseElement.innerText = _innerText;
         _innerText = null;
     }
 
     appendHtml(_htmlElement: HTMLElement) {
 
-        this.jqElementHtml.appendChild(_htmlElement);
+        this.jBaseElement.appendChild(_htmlElement);
         _htmlElement = null;
     }
 
     replaceHtml(_htmlElement: HTMLElement, _oldHtmlElement: HTMLElement) {
 
-        this.jqElementHtml.replaceChild(_htmlElement, _oldHtmlElement);
+        this.jBaseElement.replaceChild(_htmlElement, _oldHtmlElement);
         _htmlElement = _oldHtmlElement = null;
     }
 
     isEqualHtml(_htmlElement: HTMLElement): boolean {
 
-        return this.jqElementHtml.isEqualNode(_htmlElement);
+        return this.jBaseElement.isEqualNode(_htmlElement);
         _htmlElement = null;
     }
 
     /******API NODE ****************/
     getNodeName(): string {
 
-        return this.jqElementHtml.nodeName;
+        return this.jBaseElement.nodeName;
     }
 
     setNodeName(_nodeName: string) {
 
-        this.jqElementHtml.nodeName = _nodeName;
+        this.jBaseElement.nodeName = _nodeName;
         _nodeName = null;
     }
 
@@ -507,24 +507,24 @@ export class jqBaseComponent {
 
     getStyle(): MSStyleCSSProperties {
 
-        return this.jqElementHtml.style;
+        return this.jBaseElement.style;
     }
 
     setStyle(_style: MSStyleCSSProperties) {
 
-        this.jqElementHtml.style = _style;
+        this.jBaseElement.style = _style;
         _style = null;
     }
 
     getCssWidth(): string {
 
-        return this.jqElementHtml.style.width;
+        return this.jBaseElement.style.width;
 
     }
 
     setCssWidth(_width: string) {
 
-        return this.jqElementHtml.style.width = _width;
+        return this.jBaseElement.style.width = _width;
 
     }
 
@@ -536,12 +536,12 @@ export class jqBaseComponent {
 
     }
 
-    /**Finalize***/
+    /**Expire***/
     expire() {
 
-        this.jqElementHtml = null;
-        this.jqLabel = null;
-        this.jqClassName = null;
+        this.jBaseElement = null;
+        this.jLabel = null;
+        this.jClassName = null;
 
     }
 }
@@ -550,14 +550,14 @@ export class jqBaseComponent {
 @ Autor : Yonatan Alexis Quintero Rodriguez
 @ Version: 0.1
 @ Fecha :22/03/2014
-* Interfaz IJQElement
+* Interfaz IHtmlObjectElement
 **/
 
-export interface IJQElement {
+export interface IHtmlObjectElement {
 
     init(): void;
     create(id: HTMLElement): void;
-   // clone(): jqBaseComponent;
+   // clone(): HtmlObject;
     getHtml(): HTMLElement;
     finalize(): void;
 
@@ -569,13 +569,13 @@ export interface IJQElement {
 * Definición de etiqueta html <div>
 **/
 
-export class div extends jqBaseComponent {
+export class div extends HtmlObject {
 
     constructor(_className?: string) {
 
         var _tmpElement = document.createElement('div');
         super(_tmpElement);
-        this.setJQClassName(_className);
+        this.setjClassName(_className);
         this.createAutoId();
         _tmpElement = _className = null;
     }
@@ -589,13 +589,13 @@ export class div extends jqBaseComponent {
 * Definición de etiqueta html <i>
 **/
 
-export class i extends jqBaseComponent {
+export class i extends HtmlObject {
 
     constructor(_className?: string) {
 
         var _tmpElement = document.createElement('i');
         super(_tmpElement);
-        this.setJQClassName(_className);
+        this.setjClassName(_className);
         this.createAutoId();
         _tmpElement = _className = null;
     }
@@ -607,13 +607,13 @@ export class i extends jqBaseComponent {
 * Definición de etiqueta html <li>
 **/
 
-export class li extends jqBaseComponent {
+export class li extends HtmlObject {
 
     constructor(_className?: string) {
 
         var _tmpElement = document.createElement('li');
         super(_tmpElement);
-        this.setJQClassName(_className);
+        this.setjClassName(_className);
         this.createAutoId();
         _tmpElement = _className = null;
     }
@@ -625,13 +625,13 @@ export class li extends jqBaseComponent {
 * Definición de etiqueta html <p>
 **/
 
-export class p extends jqBaseComponent {
+export class p extends HtmlObject {
 
     constructor(_className?: string) {
 
         var _tmpElement = document.createElement('p');
         super(_tmpElement);
-        this.setJQClassName(_className);
+        this.setjClassName(_className);
         this.createAutoId();
         _tmpElement = _className = null;
     }
@@ -643,13 +643,13 @@ export class p extends jqBaseComponent {
 * Definición de etiqueta html <span>
 **/
 
-export class span extends jqBaseComponent {
+export class span extends HtmlObject {
 
     constructor(_className?: string) {
 
         var _tmpElement = document.createElement('span');
         super(_tmpElement);
-        this.setJQClassName(_className);
+        this.setjClassName(_className);
         this.createAutoId();
         _tmpElement = _className = null;
     }
@@ -662,13 +662,13 @@ export class span extends jqBaseComponent {
 * Definición de etiqueta html <ul>
 **/
 
-export class ul extends jqBaseComponent {
+export class ul extends HtmlObject {
 
     constructor(_className?: string) {
 
         var _tmpElement = document.createElement('ul');
         super(_tmpElement);
-        this.setJQClassName(_className);
+        this.setjClassName(_className);
         this.createAutoId();
         _tmpElement = _className = null;
     }
@@ -677,37 +677,37 @@ export class ul extends jqBaseComponent {
 @ Autor : Yonatan Alexis Quintero Rodriguez
 @ Version: 0.1
 @ Fecha :22/03/2014
-* Interfaz IJQList
+* Interfaz IJList
 **/
 
-export interface IJQList {
+export interface IJList {
 
-    jqElements: jqBaseComponent[];
+    jElements: HtmlObject[];
     length: number;
     index: number;
 
 
-    add(element: jqBaseComponent): void;
-    addIndex(element: jqBaseComponent, index: number): void;
+    add(element: HtmlObject): void;
+    addIndex(element: HtmlObject, index: number): void;
 
-    getFirst(): jqBaseComponent;
-    getLast(): jqBaseComponent;
-    getNext(): jqBaseComponent;
-    getBack(): jqBaseComponent;
-    getItem(index: number): jqBaseComponent;
+    getFirst(): HtmlObject;
+    getLast(): HtmlObject;
+    getNext(): HtmlObject;
+    getBack(): HtmlObject;
+    getItem(index: number): HtmlObject;
 
 
-    pullOutFirst(): jqBaseComponent;
-    pullOutLast(): jqBaseComponent;
-    pullOutNext(): jqBaseComponent;
-    pullOutBack(): jqBaseComponent;
-    pullOutItem(index: number): jqBaseComponent;
+    pullOutFirst(): HtmlObject;
+    pullOutLast(): HtmlObject;
+    pullOutNext(): HtmlObject;
+    pullOutBack(): HtmlObject;
+    pullOutItem(index: number): HtmlObject;
 
-    remove(element: jqBaseComponent): void;
+    remove(element: HtmlObject): void;
     removeIndex(index: number): void;
     removeAll(): void;
 
-    //clone(): IJQList;
+    //clone(): IJList;
 
     clear(): void;
     destroy(): void;
@@ -718,27 +718,27 @@ export interface IJQList {
 @ Autor : Yonatan Alexis Quintero Rodriguez
 @ Version: 0.1
 @ Fecha :22/03/2014
-* Lista de JQElement
+* Lista de JHtmlObjectElement
 **/
-export class jqList<JQ extends jqBaseComponent> implements IJQList {
+export class JList<JHtmlObject extends HtmlObject> implements IJList {
 
-    jqElements: JQ[];
+    jElements: JHtmlObject[];
     length: number;
     index: number;
-    private parent: jqBaseComponent;
+    private parent: HtmlObject;
 
-    constructor(_parent: jqBaseComponent) {
+    constructor(_parent: HtmlObject) {
 
         this.parent = _parent;
-        this.jqElements = new Array<JQ>();
+        this.jElements = new Array<JHtmlObject>();
         this.length = 0;
         this.index = -1;
         _parent = null;
     }
 
-    add(_element: JQ) {
+    add(_element: JHtmlObject) {
 
-        this.jqElements.push(_element);
+        this.jElements.push(_element);
         this.parent.appendElement(_element);
         this.length++;
         this.index++;
@@ -746,12 +746,12 @@ export class jqList<JQ extends jqBaseComponent> implements IJQList {
 
     }
 
-    addIndex(_element: JQ, _index: number) {
+    addIndex(_element: JHtmlObject, _index: number) {
 
         if (_index <= this.length && _index >= 0) {
 
-            this.parent.appendBeforeElement(_element, this.jqElements[_index]);
-            this.jqElements.splice(_index, 0, _element);
+            this.parent.appendBeforeElement(_element, this.jElements[_index]);
+            this.jElements.splice(_index, 0, _element);
             this.index = _index;
             this.length++;
             _index = _element = null;
@@ -764,12 +764,12 @@ export class jqList<JQ extends jqBaseComponent> implements IJQList {
 
     }
 
-    getFirst(): JQ {
+    getFirst(): JHtmlObject {
 
         if (!this.isEmpty()) {
 
             this.index = 0;
-            return this.jqElements[this.index];
+            return this.jElements[this.index];
 
         } else {
 
@@ -778,12 +778,12 @@ export class jqList<JQ extends jqBaseComponent> implements IJQList {
         }
     }
 
-    getLast(): JQ {
+    getLast(): JHtmlObject {
 
         if (!this.isEmpty() && this.length > 1) {
 
             this.index = this.length - 1;
-            return this.jqElements[this.index];
+            return this.jElements[this.index];
 
         } else {
 
@@ -792,12 +792,12 @@ export class jqList<JQ extends jqBaseComponent> implements IJQList {
         }
     }
 
-    getNext(): JQ {
+    getNext(): JHtmlObject {
 
         if (!this.isEmpty() && this.length > 1) {
 
             this.index = this.index === this.length - 1 ? 0 : this.index++;
-            return this.jqElements[this.index];
+            return this.jElements[this.index];
 
         } else {
 
@@ -806,12 +806,12 @@ export class jqList<JQ extends jqBaseComponent> implements IJQList {
         }
     }
 
-    getBack(): JQ {
+    getBack(): JHtmlObject {
 
         if (!this.isEmpty() && this.length > 1) {
 
             this.index = this.index === 0 ? this.length - 1 : this.index--;
-            return this.jqElements[this.index];
+            return this.jElements[this.index];
 
         } else {
 
@@ -820,7 +820,7 @@ export class jqList<JQ extends jqBaseComponent> implements IJQList {
         }
     }
 
-    getItem(_index: number): JQ {
+    getItem(_index: number): JHtmlObject {
 
         if (!this.isEmpty()) {
 
@@ -828,7 +828,7 @@ export class jqList<JQ extends jqBaseComponent> implements IJQList {
 
                 this.index = _index;
                 _index = null;
-                return this.jqElements[this.index];
+                return this.jElements[this.index];
 
             } else {
 
@@ -845,11 +845,11 @@ export class jqList<JQ extends jqBaseComponent> implements IJQList {
         }
     }
 
-    pullOutFirst(): JQ {
+    pullOutFirst(): JHtmlObject {
 
         if (!this.isEmpty()) {
 
-            var _tmpEle = this.jqElements.shift();
+            var _tmpEle = this.jElements.shift();
             this.length--;
             this.index = this.length === 0 ? -1 : 0;
             this.parent.removeElement(_tmpEle);
@@ -862,11 +862,11 @@ export class jqList<JQ extends jqBaseComponent> implements IJQList {
         }
     }
 
-    pullOutLast(): JQ {
+    pullOutLast(): JHtmlObject {
 
         if (!this.isEmpty() && this.length > 1) {
 
-            var _tmpEle = this.jqElements.pop();
+            var _tmpEle = this.jElements.pop();
             this.length--;
             this.index = this.length - 1;
             this.parent.removeElement(_tmpEle);
@@ -878,13 +878,13 @@ export class jqList<JQ extends jqBaseComponent> implements IJQList {
         }
     }
 
-    pullOutNext(): JQ {
+    pullOutNext(): JHtmlObject {
 
         if (!this.isEmpty() && this.length > 1) {
 
             var _tmpIndex = this.index;
             this.index = this.index === this.length - 1 ? 0 : this.index++;
-            var _arrTmpEle = this.jqElements.splice(this.index, 1);
+            var _arrTmpEle = this.jElements.splice(this.index, 1);
             this.length--;
             this.index = _tmpIndex;
             _tmpIndex = null;
@@ -898,13 +898,13 @@ export class jqList<JQ extends jqBaseComponent> implements IJQList {
         }
     }
 
-    pullOutBack(): JQ {
+    pullOutBack(): JHtmlObject {
 
         if (!this.isEmpty() && this.length > 1) {
 
             var _tmpIndex = this.index;
             this.index = this.index === 0 ? this.length - 1 : this.index--;
-            var _arrTmpEle = this.jqElements.splice(this.index, 1);
+            var _arrTmpEle = this.jElements.splice(this.index, 1);
             this.length--;
             this.index = _tmpIndex;
             _tmpIndex = null;
@@ -918,7 +918,7 @@ export class jqList<JQ extends jqBaseComponent> implements IJQList {
         }
     }
 
-    pullOutItem(_index: number): JQ {
+    pullOutItem(_index: number): JHtmlObject {
 
         if (!this.isEmpty()) {
 
@@ -926,7 +926,7 @@ export class jqList<JQ extends jqBaseComponent> implements IJQList {
 
                 this.index = _index;
                 _index = null;
-                var _arrTmpEle = this.jqElements.splice(this.index, 1);
+                var _arrTmpEle = this.jElements.splice(this.index, 1);
                 this.length--;
                 this.index = this.index === 0 ? this.length - 1 : this.index--;
                 this.parent.removeElement(_arrTmpEle[0]);
@@ -947,7 +947,7 @@ export class jqList<JQ extends jqBaseComponent> implements IJQList {
         }
     }
 
-    remove(_element: JQ) {
+    remove(_element: JHtmlObject) {
 
         if (!this.isEmpty()) {
 
@@ -957,11 +957,11 @@ export class jqList<JQ extends jqBaseComponent> implements IJQList {
 
                 for (var i = _length - 1; i >= 1; i--) {
 
-                    var _tmpElement = this.jqElements[i];
+                    var _tmpElement = this.jElements[i];
 
                     if (_tmpElement.equals(_element)) {
 
-                        this.jqElements.splice(i, 1);
+                        this.jElements.splice(i, 1);
                         this.length--;
                         this.index = this.index === 0 ? this.length - 1 : this.index--;
                         this.parent.removeElement(_element);
@@ -974,7 +974,7 @@ export class jqList<JQ extends jqBaseComponent> implements IJQList {
 
             } else {
 
-                this.jqElements.unshift();
+                this.jElements.unshift();
                 this.length--;
                 this.index = -1;
                 this.parent.removeElement(_element);
@@ -992,7 +992,7 @@ export class jqList<JQ extends jqBaseComponent> implements IJQList {
 
                 this.index = _index;
                 _index = null;
-                var _arrTmpEle = this.jqElements.splice(this.index, 1);
+                var _arrTmpEle = this.jElements.splice(this.index, 1);
                 this.length--;
                 this.index = this.index === 0 ? this.length - 1 : this.index--;
                 this.parent.removeElement(_arrTmpEle[0]);
@@ -1016,12 +1016,12 @@ export class jqList<JQ extends jqBaseComponent> implements IJQList {
 
     }
 
-    //clone() :jqList<JQ>{
+    //clone() :JList<JHtmlObject>{
 
     //    console.log(this);
     //    var _self = this;
     //    console.log(this);
-    //    var _tmpList = _self.jqElements;
+    //    var _tmpList = _self.jElements;
     //    var _length = _tmpList.length;
     //    var i = 0;
     //    _self.removeAll();
@@ -1029,7 +1029,7 @@ export class jqList<JQ extends jqBaseComponent> implements IJQList {
     //    while (i < _length) {
 
     //        var _element = _tmpList[i];
-    //        var _clone = <JQ>_element.cloneElement();
+    //        var _clone = <JHtmlObject>_element.cloneElement();
     //        _self.add(_clone);
     //        _element = _clone = null;
     //        i++;
@@ -1042,14 +1042,14 @@ export class jqList<JQ extends jqBaseComponent> implements IJQList {
 
     clear() {
 
-        this.jqElements = [];
+        this.jElements = [];
         this.length = 0;
         this.index = -1;
     }
 
     destroy() {
 
-        this.jqElements = null;
+        this.jElements = null;
         this.length = null;
         this.index = null;
         this.parent = null;

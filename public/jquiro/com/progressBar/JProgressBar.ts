@@ -1,5 +1,5 @@
-/// <reference path=".././base_component/JQElement.ts" />
-import jqE = require('.././base_component/JQElement');
+/// <reference path=".././htmlObject/HtmlObject.ts" />
+import HtmlObject = require('.././htmlObject/HtmlObject');
 
 /**
 @ Autor : Yonatan Alexis Quintero Rodriguez
@@ -8,25 +8,25 @@ import jqE = require('.././base_component/JQElement');
 * Elemento progress de progressBar bootstrap (http://getbootstrap.com/components/#progress)
 **/
 
-export class jqProgress extends jqE.div implements jqE.IJQElement {
+export class JProgress extends HtmlObject.div implements HtmlObject.IHtmlObjectElement {
 
-    private progressBarList: jqE.jqList<jqProgressBar>;
+    private progressBarList: HtmlObject.JList<JProgressBar>;
 
-    constructor(_jqProgressBar:jqProgressBar) {
+    constructor(_JProgressBar:JProgressBar) {
 
-        super('jqProgress');
+        super('JProgress');
 
-        this.progressBarList = new jqE.jqList<jqProgressBar>(this);
+        this.progressBarList = new HtmlObject.JList<JProgressBar>(this);
 
-        this.add(_jqProgressBar);
+        this.add(_JProgressBar);
 
         this.init();
-        _jqProgressBar = null;
+        _JProgressBar = null;
     }
 
     init() {
 
-        this.addClass(jqProgressBarConst.PROGRESS);
+        this.addClass(JProgressBarConst.PROGRESS);
     }
 
     create(_id: HTMLElement) {
@@ -57,9 +57,9 @@ export class jqProgress extends jqE.div implements jqE.IJQElement {
         _lenght = null;
     }
 
-    add(_jqProgressBar: jqProgressBar) {
+    add(_JProgressBar: JProgressBar) {
 
-        this.progressBarList.add(_jqProgressBar);
+        this.progressBarList.add(_JProgressBar);
     }
 
     isStaked(): boolean {
@@ -67,12 +67,12 @@ export class jqProgress extends jqE.div implements jqE.IJQElement {
         return this.progressBarList.length > 1;
     }
 
-    getProgressBarList(): jqE.jqList<jqProgressBar> {
+    getProgressBarList(): HtmlObject.JList<JProgressBar> {
 
         return this.progressBarList;
     }
 
-    setProgressBarList(_progressBar: jqE.jqList<jqProgressBar>) {
+    setProgressBarList(_progressBar: HtmlObject.JList<JProgressBar>) {
 
         this.progressBarList = _progressBar;
         _progressBar = null;
@@ -83,11 +83,11 @@ export class jqProgress extends jqE.div implements jqE.IJQElement {
         return this.toHtml();
     }
 
-    //clone(): jqProgress {
+    //clone(): JProgress {
 
     //    var _tmpProgress = this;
     //    //_tmpProgress.progressBarList = _tmpProgress.progressBarList.clone();
-    //    _tmpProgress = <jqProgress>_tmpProgress.cloneElement();
+    //    _tmpProgress = <JProgress>_tmpProgress.cloneElement();
 
     //    return _tmpProgress;
     //}
@@ -108,10 +108,10 @@ export class jqProgress extends jqE.div implements jqE.IJQElement {
 * Elemento progressBar de progressBar bootstrap (http://getbootstrap.com/components/#progress)
 **/
 
-export class jqProgressBar extends jqE.div implements jqE.IJQElement {
+export class JProgressBar extends HtmlObject.div implements HtmlObject.IHtmlObjectElement {
 
-    private content: jqE.span;
-    private contentLegend: jqE.span;
+    private content: HtmlObject.span;
+    private contentLegend: HtmlObject.span;
     private loadedAnimated: boolean;
     private showLabel: boolean;
     private legend: boolean;
@@ -122,11 +122,11 @@ export class jqProgressBar extends jqE.div implements jqE.IJQElement {
 
     constructor(_valueNow: number, _label: string) {
 
-        super('jqProgressBar');
+        super('JProgressBar');
 
-        this.content = new jqE.span('jqContent');
+        this.content = new HtmlObject.span('JContent');
         this.content.setInnerHtml(_label);
-        this.contentLegend = new jqE.span('jqContentLegend');
+        this.contentLegend = new HtmlObject.span('JContentLegend');
 
         this.loadedAnimated = true;
         this.showLabel = true;
@@ -145,17 +145,17 @@ export class jqProgressBar extends jqE.div implements jqE.IJQElement {
 
     init() {
 
-        this.addClass(jqProgressBarConst.PROGRESS_BAR);
-        this.addClass(jqE.jqStyle.JQ_FILL_LEFT_IN);
+        this.addClass(JProgressBarConst.PROGRESS_BAR);
+        this.addClass(HtmlObject.JStyle.JQ_FILL_LEFT_IN);
 
         if (!this.isShowLabel()) {
 
-            this.content.addClass(jqProgressBarConst.SR_ONLY);
+            this.content.addClass(JProgressBarConst.SR_ONLY);
         }
 
         if (!this.isLegend()) {
 
-            this.contentLegend.addClass(jqProgressBarConst.SR_ONLY);
+            this.contentLegend.addClass(JProgressBarConst.SR_ONLY);
         }
 
         this.contentLegend.getStyle().marginLeft = '0.5%';
@@ -203,12 +203,12 @@ export class jqProgressBar extends jqE.div implements jqE.IJQElement {
 
         return _value >= this.valueMin && _value <= this.valueMax;
     }
-    getContent(): jqE.span {
+    getContent(): HtmlObject.span {
 
         return this.content;
     }
 
-    setContent(_content: jqE.span) {
+    setContent(_content: HtmlObject.span) {
 
         this.content = _content;
         _content = null;
@@ -295,7 +295,7 @@ export class jqProgressBar extends jqE.div implements jqE.IJQElement {
         this.showLabel = _showLabel;
         if (!this.showLabel) {
 
-            this.content.addClass(jqProgressBarConst.SR_ONLY);
+            this.content.addClass(JProgressBarConst.SR_ONLY);
         }
         _showLabel = null;
     }
@@ -310,23 +310,23 @@ export class jqProgressBar extends jqE.div implements jqE.IJQElement {
         this.legend = _legend;
         if (!this.legend) {
 
-            this.contentLegend.addClass(jqProgressBarConst.SR_ONLY);
+            this.contentLegend.addClass(JProgressBarConst.SR_ONLY);
         }
         _legend = null;
     }
 
-    getContentLegend(): jqE.span {
+    getContentLegend(): HtmlObject.span {
 
         return this.contentLegend;
     }
 
-    isContentLegend(_contentLegend: jqE.span) {
+    isContentLegend(_contentLegend: HtmlObject.span) {
 
         this.contentLegend = _contentLegend;
         _contentLegend = null;
     }
 
-    //clone(): jqProgressBar {
+    //clone(): JProgressBar {
 
     //    return this.clone();
     //}
@@ -361,13 +361,13 @@ export class jqProgressBar extends jqE.div implements jqE.IJQElement {
 @ Fecha : 21 - 03 - 2014
 * Barra de progreso success bootstrap (http://getbootstrap.com/components/#progress)
 **/
-export class jqProgressBarSuccess extends jqProgressBar {
+export class JProgressBarSuccess extends JProgressBar {
 
     constructor(_valueNow: number, _label: string) {
 
         super(_valueNow, _label);
         _valueNow = _label = null;
-        this.addClass(jqProgressBarConst.PROGRESS_BAR_SUCCESS);
+        this.addClass(JProgressBarConst.PROGRESS_BAR_SUCCESS);
 
     }
 }
@@ -378,13 +378,13 @@ export class jqProgressBarSuccess extends jqProgressBar {
 @ Fecha : 21 - 03 - 2014
 * Barra de progreso info bootstrap (http://getbootstrap.com/components/#progress)
 **/
-export class jqProgressBarInfo extends jqProgressBar {
+export class JProgressBarInfo extends JProgressBar {
 
     constructor(_valueNow: number, _label: string) {
 
         super(_valueNow, _label);
         _valueNow = _label = null;
-        this.addClass(jqProgressBarConst.PROGRESS_BAR_INFO);
+        this.addClass(JProgressBarConst.PROGRESS_BAR_INFO);
 
     }
 }
@@ -394,13 +394,13 @@ export class jqProgressBarInfo extends jqProgressBar {
 @ Fecha : 21 - 03 - 2014
 * Barra de progreso Warning bootstrap (http://getbootstrap.com/components/#progress)
 **/
-export class jqProgressBarWarning extends jqProgressBar {
+export class JProgressBarWarning extends JProgressBar {
 
     constructor(_valueNow: number, _label: string) {
 
         super(_valueNow, _label);
         _valueNow = _label = null;
-        this.addClass(jqProgressBarConst.PROGRESS_BAR_WARNING);
+        this.addClass(JProgressBarConst.PROGRESS_BAR_WARNING);
 
     }
 }
@@ -410,13 +410,13 @@ export class jqProgressBarWarning extends jqProgressBar {
 @ Fecha : 21 - 03 - 2014
 * Barra de progreso Danger bootstrap (http://getbootstrap.com/components/#progress)
 **/
-export class jqProgressBarDanger extends jqProgressBar {
+export class JProgressBarDanger extends JProgressBar {
 
     constructor(_valueNow: number, _label: string) {
 
         super(_valueNow, _label);
         _valueNow = _label = null;
-        this.addClass(jqProgressBarConst.PROGRESS_BAR_DANGER);
+        this.addClass(JProgressBarConst.PROGRESS_BAR_DANGER);
 
     }
 }
@@ -426,15 +426,15 @@ export class jqProgressBarDanger extends jqProgressBar {
 @ Fecha : 21 - 03 - 2014
 * Barra de progreso striped success bootstrap (http://getbootstrap.com/components/#progress)
 **/
-export class jqProgressStriped extends jqProgress {
+export class JProgressStriped extends JProgress {
 
     private animated: boolean;
 
-    constructor(_jqProgressBar:jqProgressBar) {
+    constructor(_JProgressBar:JProgressBar) {
 
-        super(_jqProgressBar);
-        _jqProgressBar;
-        this.addClass(jqProgressBarConst.PROGRESS_STRIPED);
+        super(_JProgressBar);
+        _JProgressBar;
+        this.addClass(JProgressBarConst.PROGRESS_STRIPED);
         this.setAnimated(false);
 
     }
@@ -449,11 +449,11 @@ export class jqProgressStriped extends jqProgress {
         this.animated = _animated;
         if (this.isAnimated()) {
 
-            this.addClass(jqProgressBarConst.ACTIVE);
+            this.addClass(JProgressBarConst.ACTIVE);
 
         } else {
 
-            this.removeClass(jqProgressBarConst.ACTIVE);
+            this.removeClass(JProgressBarConst.ACTIVE);
         }
     }
 }
@@ -463,14 +463,14 @@ export class jqProgressStriped extends jqProgress {
 @ Fecha : 21 - 03 - 2014
 * Barra de progreso striped info bootstrap (http://getbootstrap.com/components/#progress)
 **/
-//export class jqProgressStripedInfo extends jqProgressInfo {
+//export class JProgressStripedInfo extends JProgressInfo {
 
 //    private animated: boolean;
 
-//    constructor(_jqProgressBar:jqProgressBar) {
+//    constructor(_JProgressBar:JProgressBar) {
 
-//        super(_jqProgressBar);
-//        this.addClass(jqProgressBarConst.PROGRESS_STRIPED);
+//        super(_JProgressBar);
+//        this.addClass(JProgressBarConst.PROGRESS_STRIPED);
 
 //        this.setAnimated(false);
 
@@ -486,11 +486,11 @@ export class jqProgressStriped extends jqProgress {
 //        this.animated = _animated;
 //        if (this.isAnimated()) {
 
-//            this.addClass(jqProgressBarConst.ACTIVE);
+//            this.addClass(JProgressBarConst.ACTIVE);
 
 //        } else {
 
-//            this.removeClass(jqProgressBarConst.ACTIVE);
+//            this.removeClass(JProgressBarConst.ACTIVE);
 //        }
 //    }
 //}
@@ -500,14 +500,14 @@ export class jqProgressStriped extends jqProgress {
 //@ Fecha : 21 - 03 - 2014
 //* Barra de progreso striped warning bootstrap (http://getbootstrap.com/components/#progress)
 //**/
-//export class jqProgressStripedWarning extends jqProgressWarning {
+//export class JProgressStripedWarning extends JProgressWarning {
 
 //    private animated: boolean;
 
-//    constructor(_jqProgressBar:jqProgressBar) {
+//    constructor(_JProgressBar:JProgressBar) {
 
-//        super(_jqProgressBar);
-//        this.addClass(jqProgressBarConst.PROGRESS_STRIPED);
+//        super(_JProgressBar);
+//        this.addClass(JProgressBarConst.PROGRESS_STRIPED);
 
 //        this.setAnimated(false);
 
@@ -523,11 +523,11 @@ export class jqProgressStriped extends jqProgress {
 //        this.animated = _animated;
 //        if (this.isAnimated()) {
 
-//            this.addClass(jqProgressBarConst.ACTIVE);
+//            this.addClass(JProgressBarConst.ACTIVE);
 
 //        } else {
 
-//            this.removeClass(jqProgressBarConst.ACTIVE);
+//            this.removeClass(JProgressBarConst.ACTIVE);
 //        }
 //    }
 //}
@@ -537,14 +537,14 @@ export class jqProgressStriped extends jqProgress {
 //@ Fecha : 21 - 03 - 2014
 //* Barra de progreso striped danger bootstrap (http://getbootstrap.com/components/#progress)
 //**/
-//export class jqProgressStripedDanger extends jqProgressDanger {
+//export class JProgressStripedDanger extends JProgressDanger {
 
 //    private animated: boolean;
 
-//   constructor(_jqProgressBar:jqProgressBar) {
+//   constructor(_JProgressBar:JProgressBar) {
 
-//        super(_jqProgressBar);
-//        this.addClass(jqProgressBarConst.PROGRESS_STRIPED);
+//        super(_JProgressBar);
+//        this.addClass(JProgressBarConst.PROGRESS_STRIPED);
 
 //        this.setAnimated(false);
 
@@ -560,11 +560,11 @@ export class jqProgressStriped extends jqProgress {
 //        this.animated = _animated;
 //        if (this.isAnimated()) {
 
-//            this.addClass(jqProgressBarConst.ACTIVE);
+//            this.addClass(JProgressBarConst.ACTIVE);
 
 //        } else {
 
-//            this.removeClass(jqProgressBarConst.ACTIVE);
+//            this.removeClass(JProgressBarConst.ACTIVE);
 //        }
 //    }
 //}
@@ -576,7 +576,7 @@ export class jqProgressStriped extends jqProgress {
 * clases progress bar bootstrap
 **/
 
-export class jqProgressBarConst {
+export class JProgressBarConst {
 
     static PROGRESS = 'progress';
     static PROGRESS_BAR = 'progress-bar';

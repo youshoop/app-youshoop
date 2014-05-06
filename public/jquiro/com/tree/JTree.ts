@@ -1,35 +1,32 @@
-/// <reference path=".././base_component/JQElement.ts" />
-/// <reference path="../icon/JQIcon.ts" />
-import jqE = require('.././base_component/JQElement');
-import jqI = require('.././icon/JQIcon');
+/// <reference path=".././htmlObject/HtmlObject.ts" />
+/// <reference path="../icon/JIcon.ts" />
+import HtmlObject = require('.././htmlObject/HtmlObject');
+import JIconMD = require('.././icon/JIcon');
 /**
 @ Autor : Yonatan Alexis Quintero Rodriguez
 @ Version: 0.1
 @ Fecha : 13 - 03 - 2014
 Estructura arbol
 **/
-export class jqTree {
+export class JTree {
 
-    private tree: jqE.ul;
-    private branchList: jqBranch[];
-
-
-    constructor(_jqLabel: string) {
-
-        this.tree = new jqE.ul('jqTree');
-        this.tree.setJQLabel(_jqLabel);
+    private tree: HtmlObject.ul;
+    private branchList: JBranch[];
 
 
-        this.branchList = new Array<jqBranch>();
+    constructor() {
 
-        this.init();
-        _jqLabel = null;
+        this.tree = new HtmlObject.ul('JTree');      
+
+        this.branchList = new Array<JBranch>();
+
+        this.init();        
     }
 
     private init(): void {
 
-        this.tree.addClass(jqI.jqFontAwesome.FA_UL);
-        this.tree.addClass(jqE.jqStyle.JQ_TREE_DF);
+        this.tree.addClass(JIconMD.JFontAwesome.FA_UL);
+        this.tree.addClass(HtmlObject.JStyle.JQ_TREE_DF);
 
     }
 
@@ -63,7 +60,7 @@ export class jqTree {
         _length = i = null;
     }
 
-    addBranch(_branch: jqBranch): void {
+    addBranch(_branch: JBranch): void {
 
         this.tree.appendElement(_branch.getBranch());
         this.tree.appendElement(_branch.getLeaves());
@@ -83,22 +80,22 @@ export class jqTree {
         return this.tree.toHtml();
     }
 
-    getTree(): jqE.ul {
+    getTree(): HtmlObject.ul {
 
         return this.tree;
     }
 
-    setTree(_tree: jqE.ul) {
+    setTree(_tree: HtmlObject.ul) {
 
         this.tree = _tree;
         _tree = null;
     }
-    getBranchList(): jqBranch[] {
+    getBranchList(): JBranch[] {
 
         return this.branchList;
     }
 
-    setBranchList(_branchList: jqBranch[]) {
+    setBranchList(_branchList: JBranch[]) {
 
         this.branchList = _branchList;
         _branchList = null;
@@ -119,57 +116,57 @@ export class jqTree {
 * Rama de la estructura arbol
 **/
 
-export class jqBranch {
+export class JBranch {
 
-    private branch: jqE.li;
-    private content: jqE.span;
-    private leaves: jqE.ul;
-    private iconOpen: jqI.jqIcon;
-    private iconClose: jqI.jqIcon;
-    private iconCurrent: jqI.jqIcon;
+    private branch: HtmlObject.li;
+    private content: HtmlObject.span;
+    private leaves: HtmlObject.ul;
+    private iconOpen: JIconMD.JIcon;
+    private iconClose: JIconMD.JIcon;
+    private iconCurrent: JIconMD.JIcon;
     private open: boolean;
     private collapse: boolean;
     private readOnly: boolean;
-    private branchList: jqBranch[];
-    private leavesList: jqLeaf[];
+    private branchList: JBranch[];
+    private leavesList: JLeaf[];
 
 
-    constructor(_jqLabel: string) {
+    constructor(_JLabel: string) {
 
-        this.branch = new jqE.li('JQBranch');
-        this.branch.setJQLabel(_jqLabel);
+        this.branch = new HtmlObject.li('JBranch');
+        this.branch.setJLabel(_JLabel);
 
-        this.leaves = new jqE.ul('JQBranchLeaves');
+        this.leaves = new HtmlObject.ul('JBranchLeaves');
 
-        this.content = new jqE.span('JQBranchContent');
-        this.content.setInnerHtml(_jqLabel);
+        this.content = new HtmlObject.span('JBranchContent');
+        this.content.setInnerHtml(_JLabel);
 
-        this.iconCurrent = new jqI.jqIcon(jqI.jqFontAwesome.FA_CHECK_SQUARE_O, jqI.jqFontAwesome.LIST_ICONS);
-        this.iconOpen = new jqI.jqIcon(jqI.jqFontAwesome.FA_ARROW_CIRCLE_DOWN, jqI.jqFontAwesome.LIST_ICONS);
-        this.iconClose = new jqI.jqIcon(jqI.jqFontAwesome.FA_ARROW_CIRCLE_RIGHT, jqI.jqFontAwesome.LIST_ICONS);
+        this.iconCurrent = new JIconMD.JIcon(JIconMD.JFontAwesome.FA_CHECK_SQUARE_O, JIconMD.JFontAwesome.LIST_ICONS);
+        this.iconOpen = new JIconMD.JIcon(JIconMD.JFontAwesome.FA_ARROW_CIRCLE_DOWN, JIconMD.JFontAwesome.LIST_ICONS);
+        this.iconClose = new JIconMD.JIcon(JIconMD.JFontAwesome.FA_ARROW_CIRCLE_RIGHT, JIconMD.JFontAwesome.LIST_ICONS);
 
         this.open = true;
         this.collapse = true;
         this.readOnly = false;
 
-        this.branchList = new Array<jqBranch>();
-        this.leavesList = new Array<jqLeaf>();
+        this.branchList = new Array<JBranch>();
+        this.leavesList = new Array<JLeaf>();
 
         this.init();
-        _jqLabel = null;
+        _JLabel = null;
     }
 
     private init() {
 
-        this.branch.addClass(jqE.jqStyle.JQ_TREE_BRANCH_DF);
+        this.branch.addClass(HtmlObject.JStyle.JQ_TREE_BRANCH_DF);
 
-        this.leaves.addClass(jqI.jqFontAwesome.FA_UL);
+        this.leaves.addClass(JIconMD.JFontAwesome.FA_UL);
 
         this.iconCurrent = this.iconOpen;
         this.branch.appendElement(this.iconOpen);
         this.branch.appendElement(this.content);
 
-        this.branch.addEvent(jqE.jqEvent.CLICK, (e) => {
+        this.branch.addEvent(HtmlObject.HtmlObjectvent.CLICK, (e) => {
 
 
             if (this.isOpen()) {
@@ -185,14 +182,14 @@ export class jqBranch {
         });
     }
 
-    addLeaf(_leaf: jqLeaf) {
+    addLeaf(_leaf: JLeaf) {
 
         this.leaves.appendElement(_leaf.getLeaf());
         this.leavesList.push(_leaf);
         _leaf = null;
     }
 
-    addBranch(_branch: jqBranch) {
+    addBranch(_branch: JBranch) {
 
         this.leaves.appendElement(_branch.getBranch());
         this.leaves.appendElement(_branch.getLeaves());
@@ -237,8 +234,8 @@ export class jqBranch {
 
                 _branch.collapseLeaves();
 
-                _branch.getBranch().removeClass(jqE.jqStyle.JQ_SHOW);
-                _branch.getBranch().addClass(jqE.jqStyle.JQ_HIDE);
+                _branch.getBranch().removeClass(HtmlObject.JStyle.JQ_SHOW);
+                _branch.getBranch().addClass(HtmlObject.JStyle.JQ_HIDE);
 
                 i++;
                 _tmpIconClose = _tmpIconOpen = _tmpIconCurrent = _branch = null;
@@ -266,8 +263,8 @@ export class jqBranch {
             while (i < _length) {
 
                 var _leaf = this.leavesList[i];
-                _leaf.getLeaf().removeClass(jqE.jqStyle.JQ_SHOW);
-                _leaf.getLeaf().addClass(jqE.jqStyle.JQ_HIDE);
+                _leaf.getLeaf().removeClass(HtmlObject.JStyle.JQ_SHOW);
+                _leaf.getLeaf().addClass(HtmlObject.JStyle.JQ_HIDE);
                 i++;
                 _leaf = null;
 
@@ -311,8 +308,8 @@ export class jqBranch {
 
                 _branch.expandLeaves();
 
-                _branch.getBranch().removeClass(jqE.jqStyle.JQ_HIDE);
-                _branch.getBranch().addClass(jqE.jqStyle.JQ_SHOW);
+                _branch.getBranch().removeClass(HtmlObject.JStyle.JQ_HIDE);
+                _branch.getBranch().addClass(HtmlObject.JStyle.JQ_SHOW);
                 i++;
                 _tmpIconClose = _tmpIconOpen = _tmpIconCurrent = _branch = null;
             }
@@ -340,8 +337,8 @@ export class jqBranch {
             while (i < _length) {
 
                 var _leaf = this.leavesList[i];
-                _leaf.getLeaf().removeClass(jqE.jqStyle.JQ_HIDE);
-                _leaf.getLeaf().addClass(jqE.jqStyle.JQ_SHOW);
+                _leaf.getLeaf().removeClass(HtmlObject.JStyle.JQ_HIDE);
+                _leaf.getLeaf().addClass(HtmlObject.JStyle.JQ_SHOW);
                 i++;
                 _leaf = null;
             }
@@ -386,57 +383,57 @@ export class jqBranch {
 
     /*** GETTERS AND SETTERS ***/
 
-    getBranch(): jqE.i {
+    getBranch(): HtmlObject.i {
 
         return this.branch;
     }
 
-    setBranch(_branch: jqE.i) {
+    setBranch(_branch: HtmlObject.i) {
 
         this.branch = _branch;
         _branch = null;
     }
 
-    getLeaves(): jqE.ul {
+    getLeaves(): HtmlObject.ul {
 
         return this.leaves;
     }
 
-    setLeaves(_leaves: jqE.ul) {
+    setLeaves(_leaves: HtmlObject.ul) {
 
         this.leaves = _leaves;
         _leaves = null;
     }
 
-    getIconOpen(): jqI.jqIcon {
+    getIconOpen(): JIconMD.JIcon {
 
         return this.iconOpen;
     }
 
-    setIconOpen(_icon: jqI.jqIcon) {
+    setIconOpen(_icon: JIconMD.JIcon) {
 
         this.iconOpen = _icon;
         _icon = null;
     }
 
-    getIconClose(): jqI.jqIcon {
+    getIconClose(): JIconMD.JIcon {
 
         return this.iconClose;
     }
 
-    setIconClose(_icon: jqI.jqIcon) {
+    setIconClose(_icon: JIconMD.JIcon) {
 
         this.iconClose = _icon;
         _icon = null;
     }
 
 
-    getContent(): jqE.span {
+    getContent(): HtmlObject.span {
 
         return this.content;
     }
 
-    setContent(_content: jqE.span) {
+    setContent(_content: HtmlObject.span) {
 
         this.content = _content;
         _content = null;
@@ -453,33 +450,33 @@ export class jqBranch {
         _open = null;
     }
 
-    getBranchList(): jqBranch[] {
+    getBranchList(): JBranch[] {
 
         return this.branchList;
     }
 
-    setBranchList(_branchList: jqBranch[]) {
+    setBranchList(_branchList: JBranch[]) {
 
         this.branchList = _branchList;
         _branchList = null;
     }
 
-    getLeavesList(): jqLeaf[] {
+    getLeavesList(): JLeaf[] {
 
         return this.leavesList;
     }
 
-    setLeavesList(_leavesList: jqLeaf[]) {
+    setLeavesList(_leavesList: JLeaf[]) {
 
         this.leavesList = _leavesList;
         _leavesList = null;
     }
-    getIconCurrent(): jqI.jqIcon {
+    getIconCurrent(): JIconMD.JIcon {
 
         return this.iconCurrent;
     }
 
-    setIconCurrent(_icon: jqI.jqIcon) {
+    setIconCurrent(_icon: JIconMD.JIcon) {
 
         this.iconCurrent = _icon;
         _icon = null;
@@ -536,33 +533,33 @@ export class jqBranch {
 @ Fecha : 13 - 03 - 2014
 * Hoja de estructura de arbol
 **/
-export class jqLeaf {
+export class JLeaf {
 
-    private leaf: jqE.li;
-    private iconSelected: jqI.jqIcon;
-    private iconUnSelected: jqI.jqIcon;
-    private iconCurrent: jqI.jqIcon;
-    private content: jqE.span;
+    private leaf: HtmlObject.li;
+    private iconSelected: JIconMD.JIcon;
+    private iconUnSelected: JIconMD.JIcon;
+    private iconCurrent: JIconMD.JIcon;
+    private content: HtmlObject.span;
     private selected: boolean;
     private readOnly: boolean;
 
 
-    constructor(_jqLabel: string) {
+    constructor(_JLabel: string) {
 
-        this.leaf = new jqE.li('JQLeaf');
-        this.leaf.setJQLabel(_jqLabel);
+        this.leaf = new HtmlObject.li('JLeaf');
+        this.leaf.setJLabel(_JLabel);
 
-        this.content = new jqE.span();
+        this.content = new HtmlObject.span();
 
-        this.iconCurrent = new jqI.jqIcon(jqI.jqFontAwesome.FA_CHECK_SQUARE_O, jqI.jqFontAwesome.LIST_ICONS);
-        this.iconSelected = new jqI.jqIcon(jqI.jqFontAwesome.FA_CHECK_SQUARE_O, jqI.jqFontAwesome.LIST_ICONS);
-        this.iconUnSelected = new jqI.jqIcon(jqI.jqFontAwesome.FA_SQUARE_O, jqI.jqFontAwesome.LIST_ICONS);
+        this.iconCurrent = new JIconMD.JIcon(JIconMD.JFontAwesome.FA_CHECK_SQUARE_O, JIconMD.JFontAwesome.LIST_ICONS);
+        this.iconSelected = new JIconMD.JIcon(JIconMD.JFontAwesome.FA_CHECK_SQUARE_O, JIconMD.JFontAwesome.LIST_ICONS);
+        this.iconUnSelected = new JIconMD.JIcon(JIconMD.JFontAwesome.FA_SQUARE_O, JIconMD.JFontAwesome.LIST_ICONS);
 
         this.selected = false;
         this.readOnly = false;
 
         this.init();
-        _jqLabel = null;
+        _JLabel = null;
     }
 
 
@@ -570,14 +567,14 @@ export class jqLeaf {
     private init() {
 
 
-        this.leaf.addClass(jqE.jqStyle.JQ_TREE_LEAF_DF);
+        this.leaf.addClass(HtmlObject.JStyle.JQ_TREE_LEAF_DF);
 
-        this.content.setInnerHtml(this.leaf.getJQLabel());
+        this.content.setInnerHtml(this.leaf.getJLabel());
         this.iconCurrent = this.iconUnSelected;
         this.leaf.appendElement(this.iconUnSelected);
         this.leaf.appendElement(this.content);
 
-        this.leaf.addEvent(jqE.jqEvent.CLICK, (e) => {
+        this.leaf.addEvent(HtmlObject.HtmlObjectvent.CLICK, (e) => {
 
             if (!this.isReadOnly()) {
 
@@ -626,57 +623,57 @@ export class jqLeaf {
         }
     }
 
-    getLeaf(): jqE.li {
+    getLeaf(): HtmlObject.li {
 
         return this.leaf;
     }
 
-    setLeaf(_leaf: jqE.li) {
+    setLeaf(_leaf: HtmlObject.li) {
 
         this.leaf = _leaf;
         _leaf = null;
 
     }
 
-    getIconSelected(): jqI.jqIcon {
+    getIconSelected(): JIconMD.JIcon {
 
         return this.iconSelected;
     }
 
-    setIconSelected(_icon: jqI.jqIcon) {
+    setIconSelected(_icon: JIconMD.JIcon) {
 
         this.iconSelected = _icon;
         _icon = null;
     }
 
-    getIconUnSelected(): jqI.jqIcon {
+    getIconUnSelected(): JIconMD.JIcon {
 
         return this.iconUnSelected;
     }
 
-    setIconUnSelected(_icon: jqI.jqIcon) {
+    setIconUnSelected(_icon: JIconMD.JIcon) {
 
         this.iconUnSelected = _icon;
         _icon = null;
     }
 
-    getIconCurrent(): jqI.jqIcon {
+    getIconCurrent(): JIconMD.JIcon {
 
         return this.iconCurrent;
     }
 
-    setIconCurrent(_icon: jqI.jqIcon) {
+    setIconCurrent(_icon: JIconMD.JIcon) {
 
         this.iconCurrent = _icon;
         _icon = null;
     }
 
-    getContent(): jqE.span {
+    getContent(): HtmlObject.span {
 
         return this.content;
     }
 
-    setContent(_content: jqE.span) {
+    setContent(_content: HtmlObject.span) {
 
         this.content = _content;
         _content = null;
