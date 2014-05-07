@@ -4,36 +4,36 @@ var __extends = this.__extends || function (d, b) {
     __.prototype = b.prototype;
     d.prototype = new __();
 };
-define(["require", "exports", '.././base_component/JQElement'], function(require, exports, jqE) {
+define(["require", "exports", '.././htmlObject/HtmlObject'], function(require, exports, HtmlObject) {
     /**
     @ Autor : Yonatan Alexis Quintero Rodriguez
     @ Version: 0.1
-    @ Fecha : 22 - 03 - 2014
+    @ Fecha : 06/05/2014
     * Elemento progress de progressBar bootstrap (http://getbootstrap.com/components/#progress)
     **/
-    var jqProgress = (function (_super) {
-        __extends(jqProgress, _super);
-        function jqProgress(_jqProgressBar) {
-            _super.call(this, 'jqProgress');
+    var JProgress = (function (_super) {
+        __extends(JProgress, _super);
+        function JProgress(_JProgressBar) {
+            _super.call(this, 'JProgress');
 
-            this.progressBarList = new jqE.jqList(this);
+            this.progressBarList = new HtmlObject.JList(this);
 
-            this.add(_jqProgressBar);
+            this.add(_JProgressBar);
 
             this.init();
-            _jqProgressBar = null;
+            _JProgressBar = null;
         }
-        jqProgress.prototype.init = function () {
-            this.addClass(jqProgressBarConst.PROGRESS);
+        JProgress.prototype.init = function () {
+            this.addClass(JProgressBarConst.PROGRESS);
         };
 
-        jqProgress.prototype.create = function (_id) {
+        JProgress.prototype.create = function (_id) {
             _id.appendChild(this.getHtml());
             _id = null;
             this.start();
         };
 
-        jqProgress.prototype.start = function () {
+        JProgress.prototype.start = function () {
             var _lenght = this.progressBarList.length;
 
             if (_lenght > 1) {
@@ -49,41 +49,41 @@ define(["require", "exports", '.././base_component/JQElement'], function(require
             _lenght = null;
         };
 
-        jqProgress.prototype.add = function (_jqProgressBar) {
-            this.progressBarList.add(_jqProgressBar);
+        JProgress.prototype.add = function (_JProgressBar) {
+            this.progressBarList.add(_JProgressBar);
         };
 
-        jqProgress.prototype.isStaked = function () {
+        JProgress.prototype.isStaked = function () {
             return this.progressBarList.length > 1;
         };
 
-        jqProgress.prototype.getProgressBarList = function () {
+        JProgress.prototype.getProgressBarList = function () {
             return this.progressBarList;
         };
 
-        jqProgress.prototype.setProgressBarList = function (_progressBar) {
+        JProgress.prototype.setProgressBarList = function (_progressBar) {
             this.progressBarList = _progressBar;
             _progressBar = null;
         };
 
-        jqProgress.prototype.getHtml = function () {
+        JProgress.prototype.getHtml = function () {
             return this.toHtml();
         };
 
-        //clone(): jqProgress {
+        //clone(): JProgress {
         //    var _tmpProgress = this;
         //    //_tmpProgress.progressBarList = _tmpProgress.progressBarList.clone();
-        //    _tmpProgress = <jqProgress>_tmpProgress.cloneElement();
+        //    _tmpProgress = <JProgress>_tmpProgress.cloneElement();
         //    return _tmpProgress;
         //}
-        jqProgress.prototype.finalize = function () {
+        JProgress.prototype.finalize = function () {
             this.progressBarList.destroy();
             this.progressBarList = null;
             this.expire();
         };
-        return jqProgress;
-    })(jqE.div);
-    exports.jqProgress = jqProgress;
+        return JProgress;
+    })(HtmlObject.div);
+    exports.JProgress = JProgress;
 
     /**
     @ Autor : Yonatan Alexis Quintero Rodriguez
@@ -91,14 +91,14 @@ define(["require", "exports", '.././base_component/JQElement'], function(require
     @ Fecha : 22 - 03 - 2014
     * Elemento progressBar de progressBar bootstrap (http://getbootstrap.com/components/#progress)
     **/
-    var jqProgressBar = (function (_super) {
-        __extends(jqProgressBar, _super);
-        function jqProgressBar(_valueNow, _label) {
-            _super.call(this, 'jqProgressBar');
+    var JProgressBar = (function (_super) {
+        __extends(JProgressBar, _super);
+        function JProgressBar(_valueNow, _label) {
+            _super.call(this, 'JProgressBar');
 
-            this.content = new jqE.span('jqContent');
+            this.content = new HtmlObject.span('JContent');
             this.content.setInnerHtml(_label);
-            this.contentLegend = new jqE.span('jqContentLegend');
+            this.contentLegend = new HtmlObject.span('JContentLegend');
 
             this.loadedAnimated = true;
             this.showLabel = true;
@@ -113,16 +113,16 @@ define(["require", "exports", '.././base_component/JQElement'], function(require
 
             _label = _valueNow = null;
         }
-        jqProgressBar.prototype.init = function () {
-            this.addClass(jqProgressBarConst.PROGRESS_BAR);
-            this.addClass(jqE.jqStyle.JQ_FILL_LEFT_IN);
+        JProgressBar.prototype.init = function () {
+            this.addClass(JProgressBarConst.PROGRESS_BAR);
+            this.addClass(HtmlObject.JStyle.JQ_FILL_LEFT_IN);
 
             if (!this.isShowLabel()) {
-                this.content.addClass(jqProgressBarConst.SR_ONLY);
+                this.content.addClass(JProgressBarConst.SR_ONLY);
             }
 
             if (!this.isLegend()) {
-                this.contentLegend.addClass(jqProgressBarConst.SR_ONLY);
+                this.contentLegend.addClass(JProgressBarConst.SR_ONLY);
             }
 
             this.contentLegend.getStyle().marginLeft = '0.5%';
@@ -132,7 +132,7 @@ define(["require", "exports", '.././base_component/JQElement'], function(require
             this.appendElement(this.contentLegend);
         };
 
-        jqProgressBar.prototype.create = function (_id) {
+        JProgressBar.prototype.create = function (_id) {
             _id.appendChild(this.getHtml());
             _id = null;
 
@@ -143,7 +143,7 @@ define(["require", "exports", '.././base_component/JQElement'], function(require
             }
         };
 
-        jqProgressBar.prototype.start = function () {
+        JProgressBar.prototype.start = function () {
             var _this = this;
             if (this.isLoadedAnimated()) {
                 window.setTimeout(function () {
@@ -154,32 +154,32 @@ define(["require", "exports", '.././base_component/JQElement'], function(require
             }
         };
 
-        jqProgressBar.prototype.isRangeValid = function (_value) {
+        JProgressBar.prototype.isRangeValid = function (_value) {
             return _value >= this.valueMin && _value <= this.valueMax;
         };
-        jqProgressBar.prototype.getContent = function () {
+        JProgressBar.prototype.getContent = function () {
             return this.content;
         };
 
-        jqProgressBar.prototype.setContent = function (_content) {
+        JProgressBar.prototype.setContent = function (_content) {
             this.content = _content;
             _content = null;
         };
 
-        jqProgressBar.prototype.isLoadedAnimated = function () {
+        JProgressBar.prototype.isLoadedAnimated = function () {
             return this.loadedAnimated;
         };
 
-        jqProgressBar.prototype.setLoadedAnimated = function (_loadedAnimated) {
+        JProgressBar.prototype.setLoadedAnimated = function (_loadedAnimated) {
             this.loadedAnimated = _loadedAnimated;
             _loadedAnimated = null;
         };
 
-        jqProgressBar.prototype.getValueNow = function () {
+        JProgressBar.prototype.getValueNow = function () {
             return this.valueNow;
         };
 
-        jqProgressBar.prototype.setValueNow = function (_valueNow) {
+        JProgressBar.prototype.setValueNow = function (_valueNow) {
             if (this.isRangeValid(_valueNow)) {
                 if (this.isLoadedAnimated()) {
                     this.valueNow = _valueNow;
@@ -193,73 +193,73 @@ define(["require", "exports", '.././base_component/JQElement'], function(require
             _valueNow = null;
         };
 
-        jqProgressBar.prototype.getValueMin = function () {
+        JProgressBar.prototype.getValueMin = function () {
             return this.valueMin;
         };
 
-        jqProgressBar.prototype.setValueMin = function (_valueMin) {
+        JProgressBar.prototype.setValueMin = function (_valueMin) {
             this.valueMin = _valueMin;
             _valueMin = null;
         };
 
-        jqProgressBar.prototype.getValueMax = function () {
+        JProgressBar.prototype.getValueMax = function () {
             return this.valueMax;
         };
 
-        jqProgressBar.prototype.setValueMax = function (_valueMax) {
+        JProgressBar.prototype.setValueMax = function (_valueMax) {
             this.valueMax = _valueMax;
             _valueMax = null;
         };
 
-        jqProgressBar.prototype.getValueMilliSeconds = function () {
+        JProgressBar.prototype.getValueMilliSeconds = function () {
             return this.valueMilliSeconds;
         };
 
-        jqProgressBar.prototype.setValueMilliSeconds = function (_milliSeconds) {
+        JProgressBar.prototype.setValueMilliSeconds = function (_milliSeconds) {
             this.valueMilliSeconds = _milliSeconds;
         };
 
-        jqProgressBar.prototype.isShowLabel = function () {
+        JProgressBar.prototype.isShowLabel = function () {
             return this.showLabel;
         };
 
-        jqProgressBar.prototype.setShowLabel = function (_showLabel) {
+        JProgressBar.prototype.setShowLabel = function (_showLabel) {
             this.showLabel = _showLabel;
             if (!this.showLabel) {
-                this.content.addClass(jqProgressBarConst.SR_ONLY);
+                this.content.addClass(JProgressBarConst.SR_ONLY);
             }
             _showLabel = null;
         };
 
-        jqProgressBar.prototype.isLegend = function () {
+        JProgressBar.prototype.isLegend = function () {
             return this.legend;
         };
 
-        jqProgressBar.prototype.setLegend = function (_legend) {
+        JProgressBar.prototype.setLegend = function (_legend) {
             this.legend = _legend;
             if (!this.legend) {
-                this.contentLegend.addClass(jqProgressBarConst.SR_ONLY);
+                this.contentLegend.addClass(JProgressBarConst.SR_ONLY);
             }
             _legend = null;
         };
 
-        jqProgressBar.prototype.getContentLegend = function () {
+        JProgressBar.prototype.getContentLegend = function () {
             return this.contentLegend;
         };
 
-        jqProgressBar.prototype.isContentLegend = function (_contentLegend) {
+        JProgressBar.prototype.isContentLegend = function (_contentLegend) {
             this.contentLegend = _contentLegend;
             _contentLegend = null;
         };
 
-        //clone(): jqProgressBar {
+        //clone(): JProgressBar {
         //    return this.clone();
         //}
-        jqProgressBar.prototype.getHtml = function () {
+        JProgressBar.prototype.getHtml = function () {
             return this.toHtml();
         };
 
-        jqProgressBar.prototype.finalize = function () {
+        JProgressBar.prototype.finalize = function () {
             this.loadedAnimated = null;
             this.showLabel = null;
             this.valueNow = null;
@@ -272,9 +272,9 @@ define(["require", "exports", '.././base_component/JQElement'], function(require
             this.contentLegend = null;
             this.expire();
         };
-        return jqProgressBar;
-    })(jqE.div);
-    exports.jqProgressBar = jqProgressBar;
+        return JProgressBar;
+    })(HtmlObject.div);
+    exports.JProgressBar = JProgressBar;
 
     /**
     @ Autor : Yonatan Alexis Quintero Rodriguez
@@ -282,16 +282,16 @@ define(["require", "exports", '.././base_component/JQElement'], function(require
     @ Fecha : 21 - 03 - 2014
     * Barra de progreso success bootstrap (http://getbootstrap.com/components/#progress)
     **/
-    var jqProgressBarSuccess = (function (_super) {
-        __extends(jqProgressBarSuccess, _super);
-        function jqProgressBarSuccess(_valueNow, _label) {
+    var JProgressBarSuccess = (function (_super) {
+        __extends(JProgressBarSuccess, _super);
+        function JProgressBarSuccess(_valueNow, _label) {
             _super.call(this, _valueNow, _label);
             _valueNow = _label = null;
-            this.addClass(jqProgressBarConst.PROGRESS_BAR_SUCCESS);
+            this.addClass(JProgressBarConst.PROGRESS_BAR_SUCCESS);
         }
-        return jqProgressBarSuccess;
-    })(jqProgressBar);
-    exports.jqProgressBarSuccess = jqProgressBarSuccess;
+        return JProgressBarSuccess;
+    })(JProgressBar);
+    exports.JProgressBarSuccess = JProgressBarSuccess;
 
     /**
     @ Autor : Yonatan Alexis Quintero Rodriguez
@@ -299,16 +299,16 @@ define(["require", "exports", '.././base_component/JQElement'], function(require
     @ Fecha : 21 - 03 - 2014
     * Barra de progreso info bootstrap (http://getbootstrap.com/components/#progress)
     **/
-    var jqProgressBarInfo = (function (_super) {
-        __extends(jqProgressBarInfo, _super);
-        function jqProgressBarInfo(_valueNow, _label) {
+    var JProgressBarInfo = (function (_super) {
+        __extends(JProgressBarInfo, _super);
+        function JProgressBarInfo(_valueNow, _label) {
             _super.call(this, _valueNow, _label);
             _valueNow = _label = null;
-            this.addClass(jqProgressBarConst.PROGRESS_BAR_INFO);
+            this.addClass(JProgressBarConst.PROGRESS_BAR_INFO);
         }
-        return jqProgressBarInfo;
-    })(jqProgressBar);
-    exports.jqProgressBarInfo = jqProgressBarInfo;
+        return JProgressBarInfo;
+    })(JProgressBar);
+    exports.JProgressBarInfo = JProgressBarInfo;
 
     /**
     @ Autor : Yonatan Alexis Quintero Rodriguez
@@ -316,16 +316,16 @@ define(["require", "exports", '.././base_component/JQElement'], function(require
     @ Fecha : 21 - 03 - 2014
     * Barra de progreso Warning bootstrap (http://getbootstrap.com/components/#progress)
     **/
-    var jqProgressBarWarning = (function (_super) {
-        __extends(jqProgressBarWarning, _super);
-        function jqProgressBarWarning(_valueNow, _label) {
+    var JProgressBarWarning = (function (_super) {
+        __extends(JProgressBarWarning, _super);
+        function JProgressBarWarning(_valueNow, _label) {
             _super.call(this, _valueNow, _label);
             _valueNow = _label = null;
-            this.addClass(jqProgressBarConst.PROGRESS_BAR_WARNING);
+            this.addClass(JProgressBarConst.PROGRESS_BAR_WARNING);
         }
-        return jqProgressBarWarning;
-    })(jqProgressBar);
-    exports.jqProgressBarWarning = jqProgressBarWarning;
+        return JProgressBarWarning;
+    })(JProgressBar);
+    exports.JProgressBarWarning = JProgressBarWarning;
 
     /**
     @ Autor : Yonatan Alexis Quintero Rodriguez
@@ -333,16 +333,16 @@ define(["require", "exports", '.././base_component/JQElement'], function(require
     @ Fecha : 21 - 03 - 2014
     * Barra de progreso Danger bootstrap (http://getbootstrap.com/components/#progress)
     **/
-    var jqProgressBarDanger = (function (_super) {
-        __extends(jqProgressBarDanger, _super);
-        function jqProgressBarDanger(_valueNow, _label) {
+    var JProgressBarDanger = (function (_super) {
+        __extends(JProgressBarDanger, _super);
+        function JProgressBarDanger(_valueNow, _label) {
             _super.call(this, _valueNow, _label);
             _valueNow = _label = null;
-            this.addClass(jqProgressBarConst.PROGRESS_BAR_DANGER);
+            this.addClass(JProgressBarConst.PROGRESS_BAR_DANGER);
         }
-        return jqProgressBarDanger;
-    })(jqProgressBar);
-    exports.jqProgressBarDanger = jqProgressBarDanger;
+        return JProgressBarDanger;
+    })(JProgressBar);
+    exports.JProgressBarDanger = JProgressBarDanger;
 
     /**
     @ Autor : Yonatan Alexis Quintero Rodriguez
@@ -350,29 +350,29 @@ define(["require", "exports", '.././base_component/JQElement'], function(require
     @ Fecha : 21 - 03 - 2014
     * Barra de progreso striped success bootstrap (http://getbootstrap.com/components/#progress)
     **/
-    var jqProgressStriped = (function (_super) {
-        __extends(jqProgressStriped, _super);
-        function jqProgressStriped(_jqProgressBar) {
-            _super.call(this, _jqProgressBar);
-            _jqProgressBar;
-            this.addClass(jqProgressBarConst.PROGRESS_STRIPED);
+    var JProgressStriped = (function (_super) {
+        __extends(JProgressStriped, _super);
+        function JProgressStriped(_JProgressBar) {
+            _super.call(this, _JProgressBar);
+            _JProgressBar;
+            this.addClass(JProgressBarConst.PROGRESS_STRIPED);
             this.setAnimated(false);
         }
-        jqProgressStriped.prototype.isAnimated = function () {
+        JProgressStriped.prototype.isAnimated = function () {
             return this.animated;
         };
 
-        jqProgressStriped.prototype.setAnimated = function (_animated) {
+        JProgressStriped.prototype.setAnimated = function (_animated) {
             this.animated = _animated;
             if (this.isAnimated()) {
-                this.addClass(jqProgressBarConst.ACTIVE);
+                this.addClass(JProgressBarConst.ACTIVE);
             } else {
-                this.removeClass(jqProgressBarConst.ACTIVE);
+                this.removeClass(JProgressBarConst.ACTIVE);
             }
         };
-        return jqProgressStriped;
-    })(jqProgress);
-    exports.jqProgressStriped = jqProgressStriped;
+        return JProgressStriped;
+    })(JProgress);
+    exports.JProgressStriped = JProgressStriped;
 
     /**
     @ Autor : Yonatan Alexis Quintero Rodriguez
@@ -380,11 +380,11 @@ define(["require", "exports", '.././base_component/JQElement'], function(require
     @ Fecha : 21 - 03 - 2014
     * Barra de progreso striped info bootstrap (http://getbootstrap.com/components/#progress)
     **/
-    //export class jqProgressStripedInfo extends jqProgressInfo {
+    //export class JProgressStripedInfo extends JProgressInfo {
     //    private animated: boolean;
-    //    constructor(_jqProgressBar:jqProgressBar) {
-    //        super(_jqProgressBar);
-    //        this.addClass(jqProgressBarConst.PROGRESS_STRIPED);
+    //    constructor(_JProgressBar:JProgressBar) {
+    //        super(_JProgressBar);
+    //        this.addClass(JProgressBarConst.PROGRESS_STRIPED);
     //        this.setAnimated(false);
     //    }
     //    isAnimated(): boolean {
@@ -393,9 +393,9 @@ define(["require", "exports", '.././base_component/JQElement'], function(require
     //    setAnimated(_animated: boolean) {
     //        this.animated = _animated;
     //        if (this.isAnimated()) {
-    //            this.addClass(jqProgressBarConst.ACTIVE);
+    //            this.addClass(JProgressBarConst.ACTIVE);
     //        } else {
-    //            this.removeClass(jqProgressBarConst.ACTIVE);
+    //            this.removeClass(JProgressBarConst.ACTIVE);
     //        }
     //    }
     //}
@@ -405,11 +405,11 @@ define(["require", "exports", '.././base_component/JQElement'], function(require
     //@ Fecha : 21 - 03 - 2014
     //* Barra de progreso striped warning bootstrap (http://getbootstrap.com/components/#progress)
     //**/
-    //export class jqProgressStripedWarning extends jqProgressWarning {
+    //export class JProgressStripedWarning extends JProgressWarning {
     //    private animated: boolean;
-    //    constructor(_jqProgressBar:jqProgressBar) {
-    //        super(_jqProgressBar);
-    //        this.addClass(jqProgressBarConst.PROGRESS_STRIPED);
+    //    constructor(_JProgressBar:JProgressBar) {
+    //        super(_JProgressBar);
+    //        this.addClass(JProgressBarConst.PROGRESS_STRIPED);
     //        this.setAnimated(false);
     //    }
     //    isAnimated(): boolean {
@@ -418,9 +418,9 @@ define(["require", "exports", '.././base_component/JQElement'], function(require
     //    setAnimated(_animated: boolean) {
     //        this.animated = _animated;
     //        if (this.isAnimated()) {
-    //            this.addClass(jqProgressBarConst.ACTIVE);
+    //            this.addClass(JProgressBarConst.ACTIVE);
     //        } else {
-    //            this.removeClass(jqProgressBarConst.ACTIVE);
+    //            this.removeClass(JProgressBarConst.ACTIVE);
     //        }
     //    }
     //}
@@ -430,11 +430,11 @@ define(["require", "exports", '.././base_component/JQElement'], function(require
     //@ Fecha : 21 - 03 - 2014
     //* Barra de progreso striped danger bootstrap (http://getbootstrap.com/components/#progress)
     //**/
-    //export class jqProgressStripedDanger extends jqProgressDanger {
+    //export class JProgressStripedDanger extends JProgressDanger {
     //    private animated: boolean;
-    //   constructor(_jqProgressBar:jqProgressBar) {
-    //        super(_jqProgressBar);
-    //        this.addClass(jqProgressBarConst.PROGRESS_STRIPED);
+    //   constructor(_JProgressBar:JProgressBar) {
+    //        super(_JProgressBar);
+    //        this.addClass(JProgressBarConst.PROGRESS_STRIPED);
     //        this.setAnimated(false);
     //    }
     //    isAnimated(): boolean {
@@ -443,9 +443,9 @@ define(["require", "exports", '.././base_component/JQElement'], function(require
     //    setAnimated(_animated: boolean) {
     //        this.animated = _animated;
     //        if (this.isAnimated()) {
-    //            this.addClass(jqProgressBarConst.ACTIVE);
+    //            this.addClass(JProgressBarConst.ACTIVE);
     //        } else {
-    //            this.removeClass(jqProgressBarConst.ACTIVE);
+    //            this.removeClass(JProgressBarConst.ACTIVE);
     //        }
     //    }
     //}
@@ -456,19 +456,19 @@ define(["require", "exports", '.././base_component/JQElement'], function(require
     @ Fecha : 19 - 03 - 2014
     * clases progress bar bootstrap
     **/
-    var jqProgressBarConst = (function () {
-        function jqProgressBarConst() {
+    var JProgressBarConst = (function () {
+        function JProgressBarConst() {
         }
-        jqProgressBarConst.PROGRESS = 'progress';
-        jqProgressBarConst.PROGRESS_BAR = 'progress-bar';
-        jqProgressBarConst.SR_ONLY = 'sr-only';
-        jqProgressBarConst.PROGRESS_BAR_SUCCESS = 'progress-bar-success';
-        jqProgressBarConst.PROGRESS_BAR_INFO = 'progress-bar-info';
-        jqProgressBarConst.PROGRESS_BAR_WARNING = 'progress-bar-warning';
-        jqProgressBarConst.PROGRESS_BAR_DANGER = 'progress-bar-danger';
-        jqProgressBarConst.PROGRESS_STRIPED = 'progress-striped';
-        jqProgressBarConst.ACTIVE = "active";
-        return jqProgressBarConst;
+        JProgressBarConst.PROGRESS = 'progress';
+        JProgressBarConst.PROGRESS_BAR = 'progress-bar';
+        JProgressBarConst.SR_ONLY = 'sr-only';
+        JProgressBarConst.PROGRESS_BAR_SUCCESS = 'progress-bar-success';
+        JProgressBarConst.PROGRESS_BAR_INFO = 'progress-bar-info';
+        JProgressBarConst.PROGRESS_BAR_WARNING = 'progress-bar-warning';
+        JProgressBarConst.PROGRESS_BAR_DANGER = 'progress-bar-danger';
+        JProgressBarConst.PROGRESS_STRIPED = 'progress-striped';
+        JProgressBarConst.ACTIVE = "active";
+        return JProgressBarConst;
     })();
-    exports.jqProgressBarConst = jqProgressBarConst;
+    exports.JProgressBarConst = JProgressBarConst;
 });

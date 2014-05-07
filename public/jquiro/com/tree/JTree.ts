@@ -134,7 +134,7 @@ export class JBranch {
     constructor(_JLabel: string) {
 
         this.branch = new HtmlObject.li('JBranch');
-        this.branch.setJLabel(_JLabel);
+        this.branch.setjLabel(_JLabel);
 
         this.leaves = new HtmlObject.ul('JBranchLeaves');
 
@@ -166,7 +166,7 @@ export class JBranch {
         this.branch.appendElement(this.iconOpen);
         this.branch.appendElement(this.content);
 
-        this.branch.addEvent(HtmlObject.HtmlObjectvent.CLICK, (e) => {
+        this.branch.addEvent(HtmlObject.JEvent.CLICK, (e) => {
 
 
             if (this.isOpen()) {
@@ -547,7 +547,7 @@ export class JLeaf {
     constructor(_JLabel: string) {
 
         this.leaf = new HtmlObject.li('JLeaf');
-        this.leaf.setJLabel(_JLabel);
+        this.leaf.setjLabel(_JLabel);
 
         this.content = new HtmlObject.span();
 
@@ -569,12 +569,12 @@ export class JLeaf {
 
         this.leaf.addClass(HtmlObject.JStyle.JQ_TREE_LEAF_DF);
 
-        this.content.setInnerHtml(this.leaf.getJLabel());
+        this.content.setInnerHtml(this.leaf.getjLabel());
         this.iconCurrent = this.iconUnSelected;
         this.leaf.appendElement(this.iconUnSelected);
         this.leaf.appendElement(this.content);
 
-        this.leaf.addEvent(HtmlObject.HtmlObjectvent.CLICK, (e) => {
+        this.leaf.addEvent(HtmlObject.JEvent.CLICK, (e) => {
 
             if (!this.isReadOnly()) {
 

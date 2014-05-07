@@ -4,7 +4,7 @@ import HtmlObject = require('.././htmlObject/HtmlObject');
 /**
 @ Autor : Yonatan Alexis Quintero Rodriguez
 @ Version: 0.1
-@ Fecha : 22 - 03 - 2014
+@ Fecha : 06/05/2014
 * Elemento progress de progressBar bootstrap (http://getbootstrap.com/components/#progress)
 **/
 

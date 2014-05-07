@@ -1,24 +1,24 @@
-define(["require", "exports", '.././base_component/JQElement', '.././icon/jqicon'], function(require, exports, jqE, jqI) {
+define(["require", "exports", '.././htmlObject/HtmlObject', '.././icon/JIcon'], function(require, exports, HtmlObject, JIconMD) {
     /**
     @ Autor : Yonatan Alexis Quintero Rodriguez
     @ Version: 0.1
     @ Fecha : 13 - 03 - 2014
     Estructura arbol
     **/
-    var jqTree = (function () {
-        function jqTree() {
-            this.tree = new jqE.ul('jqTree');
+    var JTree = (function () {
+        function JTree() {
+            this.tree = new HtmlObject.ul('JTree');
 
             this.branchList = new Array();
 
             this.init();
         }
-        jqTree.prototype.init = function () {
-            this.tree.addClass(jqI.jqFontAwesome.FA_UL);
-            this.tree.addClass(jqE.jqStyle.JQ_TREE_DF);
+        JTree.prototype.init = function () {
+            this.tree.addClass(JIconMD.JFontAwesome.FA_UL);
+            this.tree.addClass(HtmlObject.JStyle.JQ_TREE_DF);
         };
 
-        jqTree.prototype.collapse = function () {
+        JTree.prototype.collapse = function () {
             var i = 0;
             var _length = this.branchList.length;
             while (i < _length) {
@@ -31,7 +31,7 @@ define(["require", "exports", '.././base_component/JQElement', '.././icon/jqicon
             _length = i = null;
         };
 
-        jqTree.prototype.expand = function () {
+        JTree.prototype.expand = function () {
             var i = 0;
             var _length = this.branchList.length;
             while (i < _length) {
@@ -44,48 +44,48 @@ define(["require", "exports", '.././base_component/JQElement', '.././icon/jqicon
             _length = i = null;
         };
 
-        jqTree.prototype.addBranch = function (_branch) {
+        JTree.prototype.addBranch = function (_branch) {
             this.tree.appendElement(_branch.getBranch());
             this.tree.appendElement(_branch.getLeaves());
             this.branchList.push(_branch);
             _branch = null;
         };
 
-        jqTree.prototype.create = function (_id) {
+        JTree.prototype.create = function (_id) {
             _id.appendChild(this.getHtmlTree());
             this.collapse();
             _id = null;
         };
 
-        jqTree.prototype.getHtmlTree = function () {
+        JTree.prototype.getHtmlTree = function () {
             return this.tree.toHtml();
         };
 
-        jqTree.prototype.getTree = function () {
+        JTree.prototype.getTree = function () {
             return this.tree;
         };
 
-        jqTree.prototype.setTree = function (_tree) {
+        JTree.prototype.setTree = function (_tree) {
             this.tree = _tree;
             _tree = null;
         };
-        jqTree.prototype.getBranchList = function () {
+        JTree.prototype.getBranchList = function () {
             return this.branchList;
         };
 
-        jqTree.prototype.setBranchList = function (_branchList) {
+        JTree.prototype.setBranchList = function (_branchList) {
             this.branchList = _branchList;
             _branchList = null;
         };
 
-        jqTree.prototype.finalize = function () {
+        JTree.prototype.finalize = function () {
             this.tree.expire();
             this.tree = null;
             this.branchList = null;
         };
-        return jqTree;
+        return JTree;
     })();
-    exports.jqTree = jqTree;
+    exports.JTree = JTree;
 
     /**
     @ Autor : Yonatan Alexis Quintero Rodriguez
@@ -93,19 +93,19 @@ define(["require", "exports", '.././base_component/JQElement', '.././icon/jqicon
     @ Fecha : 13 - 03 - 2014
     * Rama de la estructura arbol
     **/
-    var jqBranch = (function () {
-        function jqBranch(_jqLabel) {
-            this.branch = new jqE.li('JQBranch');
-            this.branch.setJQLabel(_jqLabel);
+    var JBranch = (function () {
+        function JBranch(_JLabel) {
+            this.branch = new HtmlObject.li('JBranch');
+            this.branch.setjLabel(_JLabel);
 
-            this.leaves = new jqE.ul('JQBranchLeaves');
+            this.leaves = new HtmlObject.ul('JBranchLeaves');
 
-            this.content = new jqE.span('JQBranchContent');
-            this.content.setInnerHtml(_jqLabel);
+            this.content = new HtmlObject.span('JBranchContent');
+            this.content.setInnerHtml(_JLabel);
 
-            this.iconCurrent = new jqI.jqIcon(jqI.jqFontAwesome.FA_CHECK_SQUARE_O, jqI.jqFontAwesome.LIST_ICONS);
-            this.iconOpen = new jqI.jqIcon(jqI.jqFontAwesome.FA_ARROW_CIRCLE_DOWN, jqI.jqFontAwesome.LIST_ICONS);
-            this.iconClose = new jqI.jqIcon(jqI.jqFontAwesome.FA_ARROW_CIRCLE_RIGHT, jqI.jqFontAwesome.LIST_ICONS);
+            this.iconCurrent = new JIconMD.JIcon(JIconMD.JFontAwesome.FA_CHECK_SQUARE_O, JIconMD.JFontAwesome.LIST_ICONS);
+            this.iconOpen = new JIconMD.JIcon(JIconMD.JFontAwesome.FA_ARROW_CIRCLE_DOWN, JIconMD.JFontAwesome.LIST_ICONS);
+            this.iconClose = new JIconMD.JIcon(JIconMD.JFontAwesome.FA_ARROW_CIRCLE_RIGHT, JIconMD.JFontAwesome.LIST_ICONS);
 
             this.open = true;
             this.collapse = true;
@@ -115,19 +115,19 @@ define(["require", "exports", '.././base_component/JQElement', '.././icon/jqicon
             this.leavesList = new Array();
 
             this.init();
-            _jqLabel = null;
+            _JLabel = null;
         }
-        jqBranch.prototype.init = function () {
+        JBranch.prototype.init = function () {
             var _this = this;
-            this.branch.addClass(jqE.jqStyle.JQ_TREE_BRANCH_DF);
+            this.branch.addClass(HtmlObject.JStyle.JQ_TREE_BRANCH_DF);
 
-            this.leaves.addClass(jqI.jqFontAwesome.FA_UL);
+            this.leaves.addClass(JIconMD.JFontAwesome.FA_UL);
 
             this.iconCurrent = this.iconOpen;
             this.branch.appendElement(this.iconOpen);
             this.branch.appendElement(this.content);
 
-            this.branch.addEvent(jqE.jqEvent.CLICK, function (e) {
+            this.branch.addEvent(HtmlObject.JEvent.CLICK, function (e) {
                 if (_this.isOpen()) {
                     _this.collapseLeaves();
                     _this.collapseBranchs();
@@ -138,13 +138,13 @@ define(["require", "exports", '.././base_component/JQElement', '.././icon/jqicon
             });
         };
 
-        jqBranch.prototype.addLeaf = function (_leaf) {
+        JBranch.prototype.addLeaf = function (_leaf) {
             this.leaves.appendElement(_leaf.getLeaf());
             this.leavesList.push(_leaf);
             _leaf = null;
         };
 
-        jqBranch.prototype.addBranch = function (_branch) {
+        JBranch.prototype.addBranch = function (_branch) {
             this.leaves.appendElement(_branch.getBranch());
             this.leaves.appendElement(_branch.getLeaves());
             this.branchList.push(_branch);
@@ -161,7 +161,7 @@ define(["require", "exports", '.././base_component/JQElement', '.././icon/jqicon
             _length = i = null;
         };
 
-        jqBranch.prototype.collapseBranchs = function () {
+        JBranch.prototype.collapseBranchs = function () {
             if (this.isCollapse()) {
                 var i = 0;
                 var _length = this.branchList.length;
@@ -182,8 +182,8 @@ define(["require", "exports", '.././base_component/JQElement', '.././icon/jqicon
 
                     _branch.collapseLeaves();
 
-                    _branch.getBranch().removeClass(jqE.jqStyle.JQ_SHOW);
-                    _branch.getBranch().addClass(jqE.jqStyle.JQ_HIDE);
+                    _branch.getBranch().removeClass(HtmlObject.JStyle.JQ_SHOW);
+                    _branch.getBranch().addClass(HtmlObject.JStyle.JQ_HIDE);
 
                     i++;
                     _tmpIconClose = _tmpIconOpen = _tmpIconCurrent = _branch = null;
@@ -200,15 +200,15 @@ define(["require", "exports", '.././base_component/JQElement', '.././icon/jqicon
             }
         };
 
-        jqBranch.prototype.collapseLeaves = function () {
+        JBranch.prototype.collapseLeaves = function () {
             if (this.isCollapse()) {
                 var i = 0;
                 var _length = this.leavesList.length;
 
                 while (i < _length) {
                     var _leaf = this.leavesList[i];
-                    _leaf.getLeaf().removeClass(jqE.jqStyle.JQ_SHOW);
-                    _leaf.getLeaf().addClass(jqE.jqStyle.JQ_HIDE);
+                    _leaf.getLeaf().removeClass(HtmlObject.JStyle.JQ_SHOW);
+                    _leaf.getLeaf().addClass(HtmlObject.JStyle.JQ_HIDE);
                     i++;
                     _leaf = null;
                 }
@@ -224,7 +224,7 @@ define(["require", "exports", '.././base_component/JQElement', '.././icon/jqicon
             }
         };
 
-        jqBranch.prototype.expandBranchs = function () {
+        JBranch.prototype.expandBranchs = function () {
             if (this.isCollapse()) {
                 var i = 0;
                 var _length = this.branchList.length;
@@ -244,8 +244,8 @@ define(["require", "exports", '.././base_component/JQElement', '.././icon/jqicon
 
                     _branch.expandLeaves();
 
-                    _branch.getBranch().removeClass(jqE.jqStyle.JQ_HIDE);
-                    _branch.getBranch().addClass(jqE.jqStyle.JQ_SHOW);
+                    _branch.getBranch().removeClass(HtmlObject.JStyle.JQ_HIDE);
+                    _branch.getBranch().addClass(HtmlObject.JStyle.JQ_SHOW);
                     i++;
                     _tmpIconClose = _tmpIconOpen = _tmpIconCurrent = _branch = null;
                 }
@@ -261,15 +261,15 @@ define(["require", "exports", '.././base_component/JQElement', '.././icon/jqicon
             }
         };
 
-        jqBranch.prototype.expandLeaves = function () {
+        JBranch.prototype.expandLeaves = function () {
             if (this.isCollapse()) {
                 var i = 0;
                 var _length = this.leavesList.length;
 
                 while (i < _length) {
                     var _leaf = this.leavesList[i];
-                    _leaf.getLeaf().removeClass(jqE.jqStyle.JQ_HIDE);
-                    _leaf.getLeaf().addClass(jqE.jqStyle.JQ_SHOW);
+                    _leaf.getLeaf().removeClass(HtmlObject.JStyle.JQ_HIDE);
+                    _leaf.getLeaf().addClass(HtmlObject.JStyle.JQ_SHOW);
                     i++;
                     _leaf = null;
                 }
@@ -285,7 +285,7 @@ define(["require", "exports", '.././base_component/JQElement', '.././icon/jqicon
             }
         };
 
-        jqBranch.prototype.setReadOnlyLeaves = function () {
+        JBranch.prototype.setReadOnlyLeaves = function () {
             var _length = this.leavesList.length;
 
             for (var i = _length - 1; i >= 0; i--) {
@@ -295,7 +295,7 @@ define(["require", "exports", '.././base_component/JQElement', '.././icon/jqicon
             }
         };
 
-        jqBranch.prototype.setReadOnlyBranchs = function () {
+        JBranch.prototype.setReadOnlyBranchs = function () {
             var _length = this.branchList.length;
 
             for (var i = _length - 1; i >= 0; i--) {
@@ -306,107 +306,107 @@ define(["require", "exports", '.././base_component/JQElement', '.././icon/jqicon
         };
 
         /*** GETTERS AND SETTERS ***/
-        jqBranch.prototype.getBranch = function () {
+        JBranch.prototype.getBranch = function () {
             return this.branch;
         };
 
-        jqBranch.prototype.setBranch = function (_branch) {
+        JBranch.prototype.setBranch = function (_branch) {
             this.branch = _branch;
             _branch = null;
         };
 
-        jqBranch.prototype.getLeaves = function () {
+        JBranch.prototype.getLeaves = function () {
             return this.leaves;
         };
 
-        jqBranch.prototype.setLeaves = function (_leaves) {
+        JBranch.prototype.setLeaves = function (_leaves) {
             this.leaves = _leaves;
             _leaves = null;
         };
 
-        jqBranch.prototype.getIconOpen = function () {
+        JBranch.prototype.getIconOpen = function () {
             return this.iconOpen;
         };
 
-        jqBranch.prototype.setIconOpen = function (_icon) {
+        JBranch.prototype.setIconOpen = function (_icon) {
             this.iconOpen = _icon;
             _icon = null;
         };
 
-        jqBranch.prototype.getIconClose = function () {
+        JBranch.prototype.getIconClose = function () {
             return this.iconClose;
         };
 
-        jqBranch.prototype.setIconClose = function (_icon) {
+        JBranch.prototype.setIconClose = function (_icon) {
             this.iconClose = _icon;
             _icon = null;
         };
 
-        jqBranch.prototype.getContent = function () {
+        JBranch.prototype.getContent = function () {
             return this.content;
         };
 
-        jqBranch.prototype.setContent = function (_content) {
+        JBranch.prototype.setContent = function (_content) {
             this.content = _content;
             _content = null;
         };
 
-        jqBranch.prototype.isOpen = function () {
+        JBranch.prototype.isOpen = function () {
             return this.open;
         };
 
-        jqBranch.prototype.setOpen = function (_open) {
+        JBranch.prototype.setOpen = function (_open) {
             this.open = _open;
             _open = null;
         };
 
-        jqBranch.prototype.getBranchList = function () {
+        JBranch.prototype.getBranchList = function () {
             return this.branchList;
         };
 
-        jqBranch.prototype.setBranchList = function (_branchList) {
+        JBranch.prototype.setBranchList = function (_branchList) {
             this.branchList = _branchList;
             _branchList = null;
         };
 
-        jqBranch.prototype.getLeavesList = function () {
+        JBranch.prototype.getLeavesList = function () {
             return this.leavesList;
         };
 
-        jqBranch.prototype.setLeavesList = function (_leavesList) {
+        JBranch.prototype.setLeavesList = function (_leavesList) {
             this.leavesList = _leavesList;
             _leavesList = null;
         };
-        jqBranch.prototype.getIconCurrent = function () {
+        JBranch.prototype.getIconCurrent = function () {
             return this.iconCurrent;
         };
 
-        jqBranch.prototype.setIconCurrent = function (_icon) {
+        JBranch.prototype.setIconCurrent = function (_icon) {
             this.iconCurrent = _icon;
             _icon = null;
         };
 
-        jqBranch.prototype.isCollapse = function () {
+        JBranch.prototype.isCollapse = function () {
             return this.collapse;
         };
 
-        jqBranch.prototype.setCollapse = function (_collapse) {
+        JBranch.prototype.setCollapse = function (_collapse) {
             this.collapse = _collapse;
             _collapse = null;
         };
 
-        jqBranch.prototype.isReadOnly = function () {
+        JBranch.prototype.isReadOnly = function () {
             return this.readOnly;
         };
 
-        jqBranch.prototype.setReadOnly = function (_readOnly) {
+        JBranch.prototype.setReadOnly = function (_readOnly) {
             this.readOnly = _readOnly;
             this.setReadOnlyLeaves();
             this.setReadOnlyBranchs();
             _readOnly = null;
         };
 
-        jqBranch.prototype.finalize = function () {
+        JBranch.prototype.finalize = function () {
             this.branch.expire();
             this.branch = null;
             this.content.expire();
@@ -425,9 +425,9 @@ define(["require", "exports", '.././base_component/JQElement', '.././icon/jqicon
             this.branchList = null;
             this.leavesList = null;
         };
-        return jqBranch;
+        return JBranch;
     })();
-    exports.jqBranch = jqBranch;
+    exports.JBranch = JBranch;
 
     /**
     @ Autor : Yonatan Alexis Quintero Rodriguez
@@ -435,33 +435,33 @@ define(["require", "exports", '.././base_component/JQElement', '.././icon/jqicon
     @ Fecha : 13 - 03 - 2014
     * Hoja de estructura de arbol
     **/
-    var jqLeaf = (function () {
-        function jqLeaf(_jqLabel) {
-            this.leaf = new jqE.li('JQLeaf');
-            this.leaf.setJQLabel(_jqLabel);
+    var JLeaf = (function () {
+        function JLeaf(_JLabel) {
+            this.leaf = new HtmlObject.li('JLeaf');
+            this.leaf.setjLabel(_JLabel);
 
-            this.content = new jqE.span();
+            this.content = new HtmlObject.span();
 
-            this.iconCurrent = new jqI.jqIcon(jqI.jqFontAwesome.FA_CHECK_SQUARE_O, jqI.jqFontAwesome.LIST_ICONS);
-            this.iconSelected = new jqI.jqIcon(jqI.jqFontAwesome.FA_CHECK_SQUARE_O, jqI.jqFontAwesome.LIST_ICONS);
-            this.iconUnSelected = new jqI.jqIcon(jqI.jqFontAwesome.FA_SQUARE_O, jqI.jqFontAwesome.LIST_ICONS);
+            this.iconCurrent = new JIconMD.JIcon(JIconMD.JFontAwesome.FA_CHECK_SQUARE_O, JIconMD.JFontAwesome.LIST_ICONS);
+            this.iconSelected = new JIconMD.JIcon(JIconMD.JFontAwesome.FA_CHECK_SQUARE_O, JIconMD.JFontAwesome.LIST_ICONS);
+            this.iconUnSelected = new JIconMD.JIcon(JIconMD.JFontAwesome.FA_SQUARE_O, JIconMD.JFontAwesome.LIST_ICONS);
 
             this.selected = false;
             this.readOnly = false;
 
             this.init();
-            _jqLabel = null;
+            _JLabel = null;
         }
-        jqLeaf.prototype.init = function () {
+        JLeaf.prototype.init = function () {
             var _this = this;
-            this.leaf.addClass(jqE.jqStyle.JQ_TREE_LEAF_DF);
+            this.leaf.addClass(HtmlObject.JStyle.JQ_TREE_LEAF_DF);
 
-            this.content.setInnerHtml(this.leaf.getJQLabel());
+            this.content.setInnerHtml(this.leaf.getjLabel());
             this.iconCurrent = this.iconUnSelected;
             this.leaf.appendElement(this.iconUnSelected);
             this.leaf.appendElement(this.content);
 
-            this.leaf.addEvent(jqE.jqEvent.CLICK, function (e) {
+            this.leaf.addEvent(HtmlObject.JEvent.CLICK, function (e) {
                 if (!_this.isReadOnly()) {
                     if (_this.isSelected()) {
                         _this.unSelectedLeaf();
@@ -472,7 +472,7 @@ define(["require", "exports", '.././base_component/JQElement', '.././icon/jqicon
             });
         };
 
-        jqLeaf.prototype.selectedLeaf = function () {
+        JLeaf.prototype.selectedLeaf = function () {
             if (!this.isReadOnly()) {
                 this.selected = true;
 
@@ -483,7 +483,7 @@ define(["require", "exports", '.././base_component/JQElement', '.././icon/jqicon
             }
         };
 
-        jqLeaf.prototype.unSelectedLeaf = function () {
+        JLeaf.prototype.unSelectedLeaf = function () {
             if (!this.isReadOnly()) {
                 this.selected = false;
 
@@ -494,70 +494,70 @@ define(["require", "exports", '.././base_component/JQElement', '.././icon/jqicon
             }
         };
 
-        jqLeaf.prototype.getLeaf = function () {
+        JLeaf.prototype.getLeaf = function () {
             return this.leaf;
         };
 
-        jqLeaf.prototype.setLeaf = function (_leaf) {
+        JLeaf.prototype.setLeaf = function (_leaf) {
             this.leaf = _leaf;
             _leaf = null;
         };
 
-        jqLeaf.prototype.getIconSelected = function () {
+        JLeaf.prototype.getIconSelected = function () {
             return this.iconSelected;
         };
 
-        jqLeaf.prototype.setIconSelected = function (_icon) {
+        JLeaf.prototype.setIconSelected = function (_icon) {
             this.iconSelected = _icon;
             _icon = null;
         };
 
-        jqLeaf.prototype.getIconUnSelected = function () {
+        JLeaf.prototype.getIconUnSelected = function () {
             return this.iconUnSelected;
         };
 
-        jqLeaf.prototype.setIconUnSelected = function (_icon) {
+        JLeaf.prototype.setIconUnSelected = function (_icon) {
             this.iconUnSelected = _icon;
             _icon = null;
         };
 
-        jqLeaf.prototype.getIconCurrent = function () {
+        JLeaf.prototype.getIconCurrent = function () {
             return this.iconCurrent;
         };
 
-        jqLeaf.prototype.setIconCurrent = function (_icon) {
+        JLeaf.prototype.setIconCurrent = function (_icon) {
             this.iconCurrent = _icon;
             _icon = null;
         };
 
-        jqLeaf.prototype.getContent = function () {
+        JLeaf.prototype.getContent = function () {
             return this.content;
         };
 
-        jqLeaf.prototype.setContent = function (_content) {
+        JLeaf.prototype.setContent = function (_content) {
             this.content = _content;
             _content = null;
         };
 
-        jqLeaf.prototype.isSelected = function () {
+        JLeaf.prototype.isSelected = function () {
             return this.selected;
         };
 
-        jqLeaf.prototype.setSelected = function (_selected) {
+        JLeaf.prototype.setSelected = function (_selected) {
             this.selected = _selected;
             _selected = null;
         };
 
-        jqLeaf.prototype.isReadOnly = function () {
+        JLeaf.prototype.isReadOnly = function () {
             return this.readOnly;
         };
 
-        jqLeaf.prototype.setReadOnly = function (_readOnly) {
+        JLeaf.prototype.setReadOnly = function (_readOnly) {
             this.readOnly = _readOnly;
             _readOnly = null;
         };
 
-        jqLeaf.prototype.finalize = function () {
+        JLeaf.prototype.finalize = function () {
             this.leaf.expire();
             this.leaf = null;
             this.iconSelected.finalize();
@@ -571,7 +571,7 @@ define(["require", "exports", '.././base_component/JQElement', '.././icon/jqicon
             this.selected = null;
             this.readOnly = null;
         };
-        return jqLeaf;
+        return JLeaf;
     })();
-    exports.jqLeaf = jqLeaf;
+    exports.JLeaf = JLeaf;
 });

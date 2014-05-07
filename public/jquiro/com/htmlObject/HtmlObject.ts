@@ -9,15 +9,15 @@ export class JStyle {
 
     /***CLASES PARA COMPONENTE TREE***/
 
-    static JHtmlObject_TREE_DF = 'JHtmlObject-Tree-Df';
-    static JHtmlObject_TREE_BRANCH_DF = 'JHtmlObject-Tree-Branch-Df';
-    static JHtmlObject_TREE_LEAF_DF = 'JHtmlObject-Tree-Leaf-Df';
+    static JQ_TREE_DF = 'jq-Tree-Df';
+    static JQ_TREE_BRANCH_DF = 'jq-Tree-Branch-Df';
+    static JQ_TREE_LEAF_DF = 'jq-Tree-Leaf-Df';
 
     /******CLASES DE ANIMACIONES *******/
 
-    static JHtmlObject_HIDE = 'JHtmlObject-Hide';
-    static JHtmlObject_SHOW = 'JHtmlObject-Show';
-    static JHtmlObject_FILL_LEFT_IN = 'JHtmlObject-Fill-Left-in';
+    static JQ_HIDE = 'jq-Hide';
+    static JQ_SHOW = 'jq-Show';
+    static JQ_FILL_LEFT_IN = 'jq-Fill-Left-in';
 
 }
 
@@ -566,7 +566,7 @@ export interface IHtmlObjectElement {
 @ Autor : Yonatan Alexis Quintero Rodriguez
 @ Version: 0.1
 @ Fecha :12/03/2014
-* Definici贸n de etiqueta html <div>
+* Definici髇 de etiqueta html <div>
 **/
 
 export class div extends HtmlObject {
@@ -585,8 +585,26 @@ export class div extends HtmlObject {
 /**
 @ Autor : Yonatan Alexis Quintero Rodriguez
 @ Version: 0.1
+@ Fecha :06/05/2014
+* Definici髇 de etiqueta html <header>
+**/
+
+export class header extends HtmlObject {
+
+    constructor(_className?: string) {
+
+        var _tmpElement = document.createElement('header');
+        super(_tmpElement);
+        this.setjClassName(_className);
+        this.createAutoId();
+        _tmpElement = _className = null;
+    }
+}
+/**
+@ Autor : Yonatan Alexis Quintero Rodriguez
+@ Version: 0.1
 @ Fecha :12/03/2014
-* Definici贸n de etiqueta html <i>
+* Definici髇 de etiqueta html <i>
 **/
 
 export class i extends HtmlObject {
@@ -604,7 +622,7 @@ export class i extends HtmlObject {
 @ Autor : Yonatan Alexis Quintero Rodriguez
 @ Version: 0.1
 @ Fecha :12/03/2014
-* Definici贸n de etiqueta html <li>
+* Definici髇 de etiqueta html <li>
 **/
 
 export class li extends HtmlObject {
@@ -622,7 +640,7 @@ export class li extends HtmlObject {
 @ Autor : Yonatan Alexis Quintero Rodriguez
 @ Version: 0.1
 @ Fecha :12/03/2014
-* Definici贸n de etiqueta html <p>
+* Definici髇 de etiqueta html <p>
 **/
 
 export class p extends HtmlObject {
@@ -640,7 +658,7 @@ export class p extends HtmlObject {
 @ Autor : Yonatan Alexis Quintero Rodriguez
 @ Version: 0.1
 @ Fecha :12/03/2014
-* Definici贸n de etiqueta html <span>
+* Definici髇 de etiqueta html <span>
 **/
 
 export class span extends HtmlObject {
@@ -659,7 +677,7 @@ export class span extends HtmlObject {
 @ Autor : Yonatan Alexis Quintero Rodriguez
 @ Version: 0.1
 @ Fecha :12/03/2014
-* Definici贸n de etiqueta html <ul>
+* Definici髇 de etiqueta html <ul>
 **/
 
 export class ul extends HtmlObject {

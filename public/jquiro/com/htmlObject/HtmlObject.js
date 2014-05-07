@@ -2,7 +2,7 @@
 @ Autor : Yonatan Alexis Quintero Rodriguez
 @ Version: 0.1
 @ Fecha : 16 _ 03 _ 2014
-* clases de jquiro
+* clases de JHtmlObjectuiro
 **/
 var __extends = this.__extends || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
@@ -11,19 +11,19 @@ var __extends = this.__extends || function (d, b) {
     d.prototype = new __();
 };
 define(["require", "exports"], function(require, exports) {
-    var jqStyle = (function () {
-        function jqStyle() {
+    var JStyle = (function () {
+        function JStyle() {
         }
-        jqStyle.JQ_TREE_DF = 'jq-Tree-Df';
-        jqStyle.JQ_TREE_BRANCH_DF = 'jq-Tree-Branch-Df';
-        jqStyle.JQ_TREE_LEAF_DF = 'jq-Tree-Leaf-Df';
+        JStyle.JQ_TREE_DF = 'jq-Tree-Df';
+        JStyle.JQ_TREE_BRANCH_DF = 'jq-Tree-Branch-Df';
+        JStyle.JQ_TREE_LEAF_DF = 'jq-Tree-Leaf-Df';
 
-        jqStyle.JQ_HIDE = 'jq-Hide';
-        jqStyle.JQ_SHOW = 'jq-Show';
-        jqStyle.JQ_FILL_LEFT_IN = 'jq-Fill-Left-in';
-        return jqStyle;
+        JStyle.JQ_HIDE = 'jq-Hide';
+        JStyle.JQ_SHOW = 'jq-Show';
+        JStyle.JQ_FILL_LEFT_IN = 'jq-Fill-Left-in';
+        return JStyle;
     })();
-    exports.jqStyle = jqStyle;
+    exports.JStyle = JStyle;
 
     /**
     @ Autor : Yonatan Alexis Quintero Rodriguez
@@ -31,29 +31,29 @@ define(["require", "exports"], function(require, exports) {
     @ Fecha : 16 _ 03 _ 2014
     * Lista de eventos javascript
     **/
-    var jqEvent = (function () {
-        function jqEvent() {
+    var JEvent = (function () {
+        function JEvent() {
         }
-        jqEvent.BLUR = 'blur';
-        jqEvent.CHANGE = 'change';
-        jqEvent.CLICK = 'click';
-        jqEvent.DB_LCLICK = 'dblclick';
-        jqEvent.FOCUS = 'focus';
-        jqEvent.KEY_DOWN = 'keydown';
-        jqEvent.KEY_PRESS = 'keypress';
-        jqEvent.KEY_UP = 'keyup';
-        jqEvent.LOAD = 'load';
-        jqEvent.MOUSE_DOWN = 'mousedown';
-        jqEvent.MOUSE_MOVE = 'mousemove';
-        jqEvent.MOUSE_OUT = 'mouseout';
-        jqEvent.MOUSE_OVER = 'mouseover';
-        jqEvent.MOUSE_UP = 'mouseup';
-        jqEvent.RESET = 'reset';
-        jqEvent.SELECT = 'select';
-        jqEvent.SUBMIT = 'submit';
-        return jqEvent;
+        JEvent.BLUR = 'blur';
+        JEvent.CHANGE = 'change';
+        JEvent.CLICK = 'click';
+        JEvent.DB_LCLICK = 'dblclick';
+        JEvent.FOCUS = 'focus';
+        JEvent.KEY_DOWN = 'keydown';
+        JEvent.KEY_PRESS = 'keypress';
+        JEvent.KEY_UP = 'keyup';
+        JEvent.LOAD = 'load';
+        JEvent.MOUSE_DOWN = 'mousedown';
+        JEvent.MOUSE_MOVE = 'mousemove';
+        JEvent.MOUSE_OUT = 'mouseout';
+        JEvent.MOUSE_OVER = 'mouseover';
+        JEvent.MOUSE_UP = 'mouseup';
+        JEvent.RESET = 'reset';
+        JEvent.SELECT = 'select';
+        JEvent.SUBMIT = 'submit';
+        return JEvent;
     })();
-    exports.jqEvent = jqEvent;
+    exports.JEvent = JEvent;
 
     /**
     @ Autor : Yonatan Alexis Quintero Rodriguez
@@ -61,10 +61,10 @@ define(["require", "exports"], function(require, exports) {
     @ Fecha :12/03/2014
     * Observador de clases y eventos
     **/
-    var jqObserver = (function () {
-        function jqObserver() {
+    var JObserver = (function () {
+        function JObserver() {
         }
-        jqObserver.registerClass = function (_name) {
+        JObserver.registerClass = function (_name) {
             var _index = this.collectionClassName.indexOf(_name);
 
             if (_index > -1) {
@@ -76,99 +76,99 @@ define(["require", "exports"], function(require, exports) {
             _index = _name = null;
         };
 
-        jqObserver.nextKey = function (_name) {
+        JObserver.nextKey = function (_name) {
             var _index = this.collectionClassName.indexOf(_name);
             _name = null;
             return this.collectionClassKey[_index];
         };
 
-        jqObserver.finalize = function () {
+        JObserver.finalize = function () {
             this.collectionClassKey = null;
             this.collectionClassName = null;
         };
-        jqObserver.collectionClassName = new Array();
-        jqObserver.collectionClassKey = new Array();
-        return jqObserver;
+        JObserver.collectionClassName = new Array();
+        JObserver.collectionClassKey = new Array();
+        return JObserver;
     })();
-    exports.jqObserver = jqObserver;
+    exports.JObserver = JObserver;
 
     /**
     @ Autor : Yonatan Alexis Quintero Rodriguez
     @ Version: 0.1
     @ Fecha :12/03/2014
-    * Atributos y metodos bases para los componentes JQuiro
+    * Atributos y metodos bases para los componentes JHtmlObjectuiro
     **/
-    var jqBaseComponent = (function () {
-        function jqBaseComponent(_baseEle) {
-            this.jqElementHtml = _baseEle;
+    var HtmlObject = (function () {
+        function HtmlObject(_baseEle) {
+            this.jBaseElement = _baseEle;
             _baseEle = null;
         }
-        /** API JQBaseComponent **/
-        jqBaseComponent.prototype.getJQLabel = function () {
-            return this.jqLabel;
+        /** API HtmlObject **/
+        HtmlObject.prototype.getjLabel = function () {
+            return this.jLabel;
         };
 
-        jqBaseComponent.prototype.setJQLabel = function (_jqLabel) {
-            this.jqLabel = _jqLabel;
-            _jqLabel = null;
+        HtmlObject.prototype.setjLabel = function (_jLabel) {
+            this.jLabel = _jLabel;
+            _jLabel = null;
         };
 
-        jqBaseComponent.prototype.getJQClassName = function () {
-            return this.jqClassName;
+        HtmlObject.prototype.getjClassName = function () {
+            return this.jClassName;
         };
 
-        jqBaseComponent.prototype.setJQClassName = function (_jqclassName) {
-            _jqclassName = typeof _jqclassName === 'undefined' ? this.getNodeName().toLowerCase() : _jqclassName.replace(/ /g, '_');
-            this.jqClassName = _jqclassName;
-            jqObserver.registerClass(this.jqClassName);
-            _jqclassName = null;
-        };
-
-        /**
-        Agrega un objeto jqBaseComponent
-        */
-        jqBaseComponent.prototype.appendElement = function (_jqElement) {
-            this.jqElementHtml.appendChild(_jqElement.toHtml());
-            _jqElement = null;
+        HtmlObject.prototype.setjClassName = function (_jClassName) {
+            _jClassName = typeof _jClassName === 'undefined' ? this.getNodeName().toLowerCase() : _jClassName.replace(/ /g, '_');
+            this.jClassName = _jClassName;
+            JObserver.registerClass(this.jClassName);
+            _jClassName = null;
         };
 
         /**
-        Inserta un objeto antes del indicado.
+        Agrega un objeto HtmlObject
         */
-        jqBaseComponent.prototype.appendBeforeElement = function (_jqElement, jqTargetElement) {
-            this.jqElementHtml.insertBefore(_jqElement.toHtml(), jqTargetElement.toHtml());
+        HtmlObject.prototype.appendElement = function (_jElement) {
+            this.jBaseElement.appendChild(_jElement.toHtml());
+            _jElement = null;
         };
 
         /**
         Inserta un objeto antes del indicado.
         */
-        jqBaseComponent.prototype.appendAfertElement = function (_jqElement, jqTargetElement) {
-            if (this.getLastChildElement() === jqTargetElement.toHtml()) {
-                this.appendElement(_jqElement);
+        HtmlObject.prototype.appendBeforeElement = function (_jElement, jTargetElement) {
+            this.jBaseElement.insertBefore(_jElement.toHtml(), jTargetElement.toHtml());
+        };
+
+        /**
+        Inserta un objeto antes del indicado.
+        */
+        HtmlObject.prototype.appendAfertElement = function (_jElement, jTargetElement) {
+            if (this.getLastChildElement() === jTargetElement.toHtml()) {
+                this.appendElement(_jElement);
             } else {
-                this.jqElementHtml.insertBefore(_jqElement.toHtml(), jqTargetElement.getNextSiblingElement());
+                this.jBaseElement.insertBefore(_jElement.toHtml(), jTargetElement.getNextSiblingElement());
             }
         };
 
         /**
-        Reemplaza un objeto jqBaseComponent por uno nuevo
+        Reemplaza un objeto HtmlObject por uno nuevo
         */
-        jqBaseComponent.prototype.replaceElement = function (_jqElement, _oldJqElement) {
-            this.jqElementHtml.replaceChild(_jqElement.toHtml(), _oldJqElement.toHtml());
-            _jqElement = _oldJqElement = null;
+        HtmlObject.prototype.replaceElement = function (_jElement, _oldJElement) {
+            this.jBaseElement.replaceChild(_jElement.toHtml(), _oldJElement.toHtml());
+            _jElement = _oldJElement = null;
         };
 
         /**
-        Elimina un objeto jqBaseComponent
+        Elimina un objeto HtmlObject
         */
-        jqBaseComponent.prototype.removeElement = function (_jqElement) {
-            this.removeChildElement(_jqElement.toHtml());
+        HtmlObject.prototype.removeElement = function (_jElement) {
+            this.removeChildElement(_jElement.toHtml());
         };
 
         /**
-        Elimina todos los objetos jqBaseComponent
+        Elimina todos los objetos HtmlObject
         */
-        jqBaseComponent.prototype.removeAllElements = function () {
+        HtmlObject.prototype.removeAllElements = function () {
             var _length = this.getChildNodesElementsLength();
 
             if (_length > 0) {
@@ -182,96 +182,96 @@ define(["require", "exports"], function(require, exports) {
         /**
         Elimina un nodo hijo
         */
-        jqBaseComponent.prototype.removeChildElement = function (_node) {
-            this.jqElementHtml.removeChild(_node);
+        HtmlObject.prototype.removeChildElement = function (_node) {
+            this.jBaseElement.removeChild(_node);
             _node = null;
         };
 
         /**
         Se Elimina  el objeto del Dom
         */
-        jqBaseComponent.prototype.remove = function () {
-            this.getParentElement().removeChild(this.jqElementHtml);
+        HtmlObject.prototype.remove = function () {
+            this.getParentElement().removeChild(this.jBaseElement);
         };
 
         /**
         Retorna el tamano del childNodes
         */
-        jqBaseComponent.prototype.getChildNodesElementsLength = function () {
-            return this.jqElementHtml.childNodes.length;
+        HtmlObject.prototype.getChildNodesElementsLength = function () {
+            return this.jBaseElement.childNodes.length;
         };
 
         /**
         Retorna  childNodes
         */
-        jqBaseComponent.prototype.getChildNodesElements = function () {
-            return this.jqElementHtml.childNodes;
+        HtmlObject.prototype.getChildNodesElements = function () {
+            return this.jBaseElement.childNodes;
         };
 
         /**
         Retorna el nodo del  childNodes
         */
-        jqBaseComponent.prototype.getChildNodeElement = function (_index) {
-            return this.jqElementHtml.childNodes[_index];
+        HtmlObject.prototype.getChildNodeElement = function (_index) {
+            return this.jBaseElement.childNodes[_index];
         };
 
         /**
         Retorna el primer hijo
         */
-        jqBaseComponent.prototype.getFirstChildElement = function () {
-            return this.jqElementHtml.firstChild;
+        HtmlObject.prototype.getFirstChildElement = function () {
+            return this.jBaseElement.firstChild;
         };
 
         /**
         Retorna el ultimo hijo
         */
-        jqBaseComponent.prototype.getLastChildElement = function () {
-            return this.jqElementHtml.lastChild;
+        HtmlObject.prototype.getLastChildElement = function () {
+            return this.jBaseElement.lastChild;
         };
 
         /**
         Retorna el siguiente hermano
         */
-        jqBaseComponent.prototype.getNextSiblingElement = function () {
-            return this.jqElementHtml.nextSibling;
+        HtmlObject.prototype.getNextSiblingElement = function () {
+            return this.jBaseElement.nextSibling;
         };
 
         /**
         Retorna el nodo padre
         */
-        jqBaseComponent.prototype.getParentElement = function () {
-            return this.jqElementHtml.parentNode;
+        HtmlObject.prototype.getParentElement = function () {
+            return this.jBaseElement.parentNode;
         };
 
         /**
         Comprueba si dos elementos son iguales
         */
-        jqBaseComponent.prototype.isEqualElement = function (_jqElement) {
-            return this.jqElementHtml.isEqualNode(_jqElement.toHtml());
+        HtmlObject.prototype.isEqualElement = function (_jElement) {
+            return this.jBaseElement.isEqualNode(_jElement.toHtml());
         };
 
         /**
         Comprueba si dos objetos son los mismos
         */
-        jqBaseComponent.prototype.equals = function (_jqElement) {
-            return this.getId() === _jqElement.getId();
+        HtmlObject.prototype.equals = function (_jElement) {
+            return this.getId() === _jElement.getId();
         };
 
         /**
         Crea un id dinamicamente
         */
-        jqBaseComponent.prototype.createAutoId = function () {
-            this.jqElementHtml.id = this.jqClassName + "[" + jqObserver.nextKey(this.jqClassName) + "]";
+        HtmlObject.prototype.createAutoId = function () {
+            this.jBaseElement.id = this.jClassName + "[" + JObserver.nextKey(this.jClassName) + "]";
         };
 
         /**
         Clona  este objeto
         */
-        //cloneElement(): jqBaseComponent {
+        //cloneElement(): HtmlObject {
         //    var _tmpElement = this;
-        //    _tmpElement.jqElementHtml = <HTMLElement> _tmpElement.jqElementHtml.cloneNode(true);
-        //    var _class = _tmpElement.getJQClassName();
-        //    _tmpElement.setJQClassName(_class + '[cloned]');
+        //    _tmpElement.jBaseElement = <HTMLElement> _tmpElement.jBaseElement.cloneNode(true);
+        //    var _class = _tmpElement.getjClassName();
+        //    _tmpElement.setjClassName(_class + '[cloned]');
         //    //var _length = _tmpElement.getChildNodesElementsLength();
         //    //for (var i = _length - 1; i >= 0; i--) {
         //    //    var _elem = <HTMLElement> _tmpElement.getChildNodeElement(i);
@@ -281,41 +281,41 @@ define(["require", "exports"], function(require, exports) {
         //    _class = null;
         //    return _tmpElement;
         //}
-        jqBaseComponent.prototype.toHtml = function () {
-            return this.jqElementHtml;
+        HtmlObject.prototype.toHtml = function () {
+            return this.jBaseElement;
         };
 
         /****** API DE EVENTOS *********/
-        jqBaseComponent.prototype.addEvent = function (_event, _function) {
-            this.jqElementHtml.addEventListener(_event, _function, false);
+        HtmlObject.prototype.addEvent = function (_event, _function) {
+            this.jBaseElement.addEventListener(_event, _function, false);
         };
 
-        jqBaseComponent.prototype.removeEvent = function (_event, _function) {
-            this.jqElementHtml.removeEventListener(_event, _function, false);
+        HtmlObject.prototype.removeEvent = function (_event, _function) {
+            this.jBaseElement.removeEventListener(_event, _function, false);
         };
 
         /****** API ID *********/
-        jqBaseComponent.prototype.getId = function () {
-            return this.jqElementHtml.id;
+        HtmlObject.prototype.getId = function () {
+            return this.jBaseElement.id;
         };
 
-        jqBaseComponent.prototype.setId = function (_id) {
-            this.jqElementHtml.id = _id;
+        HtmlObject.prototype.setId = function (_id) {
+            this.jBaseElement.id = _id;
             _id = null;
         };
 
-        jqBaseComponent.prototype.existId = function (_id) {
-            return this.jqElementHtml.id == _id;
+        HtmlObject.prototype.existId = function (_id) {
+            return this.jBaseElement.id == _id;
             _id = null;
         };
 
         /****** API CLASS *********/
-        jqBaseComponent.prototype.addClass = function (_class) {
-            this.jqElementHtml.classList.add(_class);
+        HtmlObject.prototype.addClass = function (_class) {
+            this.jBaseElement.classList.add(_class);
             _class = null;
         };
 
-        jqBaseComponent.prototype.addCollectionClass = function (_classes) {
+        HtmlObject.prototype.addCollectionClass = function (_classes) {
             var length = _classes.length;
 
             if (length > 0) {
@@ -327,12 +327,12 @@ define(["require", "exports"], function(require, exports) {
             length = _classes = null;
         };
 
-        jqBaseComponent.prototype.removeClass = function (_class) {
-            this.jqElementHtml.classList.remove(_class);
+        HtmlObject.prototype.removeClass = function (_class) {
+            this.jBaseElement.classList.remove(_class);
             _class = null;
         };
 
-        jqBaseComponent.prototype.removeCollectionClass = function (_classes) {
+        HtmlObject.prototype.removeCollectionClass = function (_classes) {
             var length = _classes.length;
 
             if (length > 0) {
@@ -344,7 +344,7 @@ define(["require", "exports"], function(require, exports) {
             length = _classes = null;
         };
 
-        jqBaseComponent.prototype.removeAllClass = function () {
+        HtmlObject.prototype.removeAllClass = function () {
             var length = this.countClass();
             if (length > 0) {
                 for (var i = 0; i < length; i++) {
@@ -354,112 +354,112 @@ define(["require", "exports"], function(require, exports) {
             length = null;
         };
 
-        jqBaseComponent.prototype.toggleClass = function (_class) {
-            this.jqElementHtml.classList.toggle(_class);
+        HtmlObject.prototype.toggleClass = function (_class) {
+            this.jBaseElement.classList.toggle(_class);
             _class = null;
         };
 
-        jqBaseComponent.prototype.exitsClass = function (_class) {
-            return this.jqElementHtml.classList.contains(_class);
+        HtmlObject.prototype.exitsClass = function (_class) {
+            return this.jBaseElement.classList.contains(_class);
             _class = null;
         };
 
-        jqBaseComponent.prototype.countClass = function () {
-            return this.jqElementHtml.classList.length;
+        HtmlObject.prototype.countClass = function () {
+            return this.jBaseElement.classList.length;
         };
 
-        jqBaseComponent.prototype.getItemClass = function (_index) {
-            return this.jqElementHtml.classList.item(_index);
+        HtmlObject.prototype.getItemClass = function (_index) {
+            return this.jBaseElement.classList.item(_index);
             _index = null;
         };
 
         /****** API DATASET *********/
-        jqBaseComponent.prototype.getDateSet = function () {
-            return this.jqElementHtml.dataset;
+        HtmlObject.prototype.getDateSet = function () {
+            return this.jBaseElement.dataset;
         };
 
-        jqBaseComponent.prototype.addDataSet = function (_key, _value) {
-            this.jqElementHtml.dataset[_key] = _value;
+        HtmlObject.prototype.addDataSet = function (_key, _value) {
+            this.jBaseElement.dataset[_key] = _value;
             _key = _value = null;
         };
 
         /****** API HTML *********/
-        jqBaseComponent.prototype.getInnerHtml = function () {
-            return this.jqElementHtml.innerHTML;
+        HtmlObject.prototype.getInnerHtml = function () {
+            return this.jBaseElement.innerHTML;
         };
 
-        jqBaseComponent.prototype.setInnerHtml = function (_innerHtml) {
-            this.jqElementHtml.innerHTML = _innerHtml;
+        HtmlObject.prototype.setInnerHtml = function (_innerHtml) {
+            this.jBaseElement.innerHTML = _innerHtml;
             _innerHtml = null;
         };
 
-        jqBaseComponent.prototype.getInnerText = function () {
-            return this.jqElementHtml.innerText;
+        HtmlObject.prototype.getInnerText = function () {
+            return this.jBaseElement.innerText;
         };
 
-        jqBaseComponent.prototype.setInnerText = function (_innerText) {
-            this.jqElementHtml.innerText = _innerText;
+        HtmlObject.prototype.setInnerText = function (_innerText) {
+            this.jBaseElement.innerText = _innerText;
             _innerText = null;
         };
 
-        jqBaseComponent.prototype.appendHtml = function (_htmlElement) {
-            this.jqElementHtml.appendChild(_htmlElement);
+        HtmlObject.prototype.appendHtml = function (_htmlElement) {
+            this.jBaseElement.appendChild(_htmlElement);
             _htmlElement = null;
         };
 
-        jqBaseComponent.prototype.replaceHtml = function (_htmlElement, _oldHtmlElement) {
-            this.jqElementHtml.replaceChild(_htmlElement, _oldHtmlElement);
+        HtmlObject.prototype.replaceHtml = function (_htmlElement, _oldHtmlElement) {
+            this.jBaseElement.replaceChild(_htmlElement, _oldHtmlElement);
             _htmlElement = _oldHtmlElement = null;
         };
 
-        jqBaseComponent.prototype.isEqualHtml = function (_htmlElement) {
-            return this.jqElementHtml.isEqualNode(_htmlElement);
+        HtmlObject.prototype.isEqualHtml = function (_htmlElement) {
+            return this.jBaseElement.isEqualNode(_htmlElement);
             _htmlElement = null;
         };
 
         /******API NODE ****************/
-        jqBaseComponent.prototype.getNodeName = function () {
-            return this.jqElementHtml.nodeName;
+        HtmlObject.prototype.getNodeName = function () {
+            return this.jBaseElement.nodeName;
         };
 
-        jqBaseComponent.prototype.setNodeName = function (_nodeName) {
-            this.jqElementHtml.nodeName = _nodeName;
+        HtmlObject.prototype.setNodeName = function (_nodeName) {
+            this.jBaseElement.nodeName = _nodeName;
             _nodeName = null;
         };
 
         /****** API ESTILOS *********/
-        jqBaseComponent.prototype.getStyle = function () {
-            return this.jqElementHtml.style;
+        HtmlObject.prototype.getStyle = function () {
+            return this.jBaseElement.style;
         };
 
-        jqBaseComponent.prototype.setStyle = function (_style) {
-            this.jqElementHtml.style = _style;
+        HtmlObject.prototype.setStyle = function (_style) {
+            this.jBaseElement.style = _style;
             _style = null;
         };
 
-        jqBaseComponent.prototype.getCssWidth = function () {
-            return this.jqElementHtml.style.width;
+        HtmlObject.prototype.getCssWidth = function () {
+            return this.jBaseElement.style.width;
         };
 
-        jqBaseComponent.prototype.setCssWidth = function (_width) {
-            return this.jqElementHtml.style.width = _width;
+        HtmlObject.prototype.setCssWidth = function (_width) {
+            return this.jBaseElement.style.width = _width;
         };
 
-        jqBaseComponent.prototype.applyCss = function (_cssMap) {
+        HtmlObject.prototype.applyCss = function (_cssMap) {
             //var _tmpSheet = document.createElement('style');
             //_tmpSheet.innerHTML = _cssMap;
             //document.body.appendChild(_tmpSheet);
         };
 
-        /**Finalize***/
-        jqBaseComponent.prototype.expire = function () {
-            this.jqElementHtml = null;
-            this.jqLabel = null;
-            this.jqClassName = null;
+        /**Expire***/
+        HtmlObject.prototype.expire = function () {
+            this.jBaseElement = null;
+            this.jLabel = null;
+            this.jClassName = null;
         };
-        return jqBaseComponent;
+        return HtmlObject;
     })();
-    exports.jqBaseComponent = jqBaseComponent;
+    exports.HtmlObject = HtmlObject;
 
     
 
@@ -467,114 +467,133 @@ define(["require", "exports"], function(require, exports) {
     @ Autor : Yonatan Alexis Quintero Rodriguez
     @ Version: 0.1
     @ Fecha :12/03/2014
-    * Definición de etiqueta html <div>
+    * Definici�n de etiqueta html <div>
     **/
     var div = (function (_super) {
         __extends(div, _super);
         function div(_className) {
             var _tmpElement = document.createElement('div');
             _super.call(this, _tmpElement);
-            this.setJQClassName(_className);
+            this.setjClassName(_className);
             this.createAutoId();
             _tmpElement = _className = null;
         }
         return div;
-    })(jqBaseComponent);
+    })(HtmlObject);
     exports.div = div;
 
     /**
     @ Autor : Yonatan Alexis Quintero Rodriguez
     @ Version: 0.1
+    @ Fecha :06/05/2014
+    * Definici�n de etiqueta html <header>
+    **/
+    var header = (function (_super) {
+        __extends(header, _super);
+        function header(_className) {
+            var _tmpElement = document.createElement('header');
+            _super.call(this, _tmpElement);
+            this.setjClassName(_className);
+            this.createAutoId();
+            _tmpElement = _className = null;
+        }
+        return header;
+    })(HtmlObject);
+    exports.header = header;
+
+    /**
+    @ Autor : Yonatan Alexis Quintero Rodriguez
+    @ Version: 0.1
     @ Fecha :12/03/2014
-    * Definición de etiqueta html <i>
+    * Definici�n de etiqueta html <i>
     **/
     var i = (function (_super) {
         __extends(i, _super);
         function i(_className) {
             var _tmpElement = document.createElement('i');
             _super.call(this, _tmpElement);
-            this.setJQClassName(_className);
+            this.setjClassName(_className);
             this.createAutoId();
             _tmpElement = _className = null;
         }
         return i;
-    })(jqBaseComponent);
+    })(HtmlObject);
     exports.i = i;
 
     /**
     @ Autor : Yonatan Alexis Quintero Rodriguez
     @ Version: 0.1
     @ Fecha :12/03/2014
-    * Definición de etiqueta html <li>
+    * Definici�n de etiqueta html <li>
     **/
     var li = (function (_super) {
         __extends(li, _super);
         function li(_className) {
             var _tmpElement = document.createElement('li');
             _super.call(this, _tmpElement);
-            this.setJQClassName(_className);
+            this.setjClassName(_className);
             this.createAutoId();
             _tmpElement = _className = null;
         }
         return li;
-    })(jqBaseComponent);
+    })(HtmlObject);
     exports.li = li;
 
     /**
     @ Autor : Yonatan Alexis Quintero Rodriguez
     @ Version: 0.1
     @ Fecha :12/03/2014
-    * Definición de etiqueta html <p>
+    * Definici�n de etiqueta html <p>
     **/
     var p = (function (_super) {
         __extends(p, _super);
         function p(_className) {
             var _tmpElement = document.createElement('p');
             _super.call(this, _tmpElement);
-            this.setJQClassName(_className);
+            this.setjClassName(_className);
             this.createAutoId();
             _tmpElement = _className = null;
         }
         return p;
-    })(jqBaseComponent);
+    })(HtmlObject);
     exports.p = p;
 
     /**
     @ Autor : Yonatan Alexis Quintero Rodriguez
     @ Version: 0.1
     @ Fecha :12/03/2014
-    * Definición de etiqueta html <span>
+    * Definici�n de etiqueta html <span>
     **/
     var span = (function (_super) {
         __extends(span, _super);
         function span(_className) {
             var _tmpElement = document.createElement('span');
             _super.call(this, _tmpElement);
-            this.setJQClassName(_className);
+            this.setjClassName(_className);
             this.createAutoId();
             _tmpElement = _className = null;
         }
         return span;
-    })(jqBaseComponent);
+    })(HtmlObject);
     exports.span = span;
 
     /**
     @ Autor : Yonatan Alexis Quintero Rodriguez
     @ Version: 0.1
     @ Fecha :12/03/2014
-    * Definición de etiqueta html <ul>
+    * Definici�n de etiqueta html <ul>
     **/
     var ul = (function (_super) {
         __extends(ul, _super);
         function ul(_className) {
             var _tmpElement = document.createElement('ul');
             _super.call(this, _tmpElement);
-            this.setJQClassName(_className);
+            this.setjClassName(_className);
             this.createAutoId();
             _tmpElement = _className = null;
         }
         return ul;
-    })(jqBaseComponent);
+    })(HtmlObject);
     exports.ul = ul;
 
     
@@ -583,28 +602,28 @@ define(["require", "exports"], function(require, exports) {
     @ Autor : Yonatan Alexis Quintero Rodriguez
     @ Version: 0.1
     @ Fecha :22/03/2014
-    * Lista de JQElement
+    * Lista de JHtmlObjectElement
     **/
-    var jqList = (function () {
-        function jqList(_parent) {
+    var JList = (function () {
+        function JList(_parent) {
             this.parent = _parent;
-            this.jqElements = new Array();
+            this.jElements = new Array();
             this.length = 0;
             this.index = -1;
             _parent = null;
         }
-        jqList.prototype.add = function (_element) {
-            this.jqElements.push(_element);
+        JList.prototype.add = function (_element) {
+            this.jElements.push(_element);
             this.parent.appendElement(_element);
             this.length++;
             this.index++;
             _element = null;
         };
 
-        jqList.prototype.addIndex = function (_element, _index) {
+        JList.prototype.addIndex = function (_element, _index) {
             if (_index <= this.length && _index >= 0) {
-                this.parent.appendBeforeElement(_element, this.jqElements[_index]);
-                this.jqElements.splice(_index, 0, _element);
+                this.parent.appendBeforeElement(_element, this.jElements[_index]);
+                this.jElements.splice(_index, 0, _element);
                 this.index = _index;
                 this.length++;
                 _index = _element = null;
@@ -614,48 +633,48 @@ define(["require", "exports"], function(require, exports) {
             }
         };
 
-        jqList.prototype.getFirst = function () {
+        JList.prototype.getFirst = function () {
             if (!this.isEmpty()) {
                 this.index = 0;
-                return this.jqElements[this.index];
+                return this.jElements[this.index];
             } else {
                 return null;
             }
         };
 
-        jqList.prototype.getLast = function () {
+        JList.prototype.getLast = function () {
             if (!this.isEmpty() && this.length > 1) {
                 this.index = this.length - 1;
-                return this.jqElements[this.index];
+                return this.jElements[this.index];
             } else {
                 return null;
             }
         };
 
-        jqList.prototype.getNext = function () {
+        JList.prototype.getNext = function () {
             if (!this.isEmpty() && this.length > 1) {
                 this.index = this.index === this.length - 1 ? 0 : this.index++;
-                return this.jqElements[this.index];
+                return this.jElements[this.index];
             } else {
                 return null;
             }
         };
 
-        jqList.prototype.getBack = function () {
+        JList.prototype.getBack = function () {
             if (!this.isEmpty() && this.length > 1) {
                 this.index = this.index === 0 ? this.length - 1 : this.index--;
-                return this.jqElements[this.index];
+                return this.jElements[this.index];
             } else {
                 return null;
             }
         };
 
-        jqList.prototype.getItem = function (_index) {
+        JList.prototype.getItem = function (_index) {
             if (!this.isEmpty()) {
                 if (_index <= this.length && _index >= 0) {
                     this.index = _index;
                     _index = null;
-                    return this.jqElements[this.index];
+                    return this.jElements[this.index];
                 } else {
                     throw new Error('Indice ' + _index + '  fuera de rango ');
                     _index = null;
@@ -667,9 +686,9 @@ define(["require", "exports"], function(require, exports) {
             }
         };
 
-        jqList.prototype.pullOutFirst = function () {
+        JList.prototype.pullOutFirst = function () {
             if (!this.isEmpty()) {
-                var _tmpEle = this.jqElements.shift();
+                var _tmpEle = this.jElements.shift();
                 this.length--;
                 this.index = this.length === 0 ? -1 : 0;
                 this.parent.removeElement(_tmpEle);
@@ -679,9 +698,9 @@ define(["require", "exports"], function(require, exports) {
             }
         };
 
-        jqList.prototype.pullOutLast = function () {
+        JList.prototype.pullOutLast = function () {
             if (!this.isEmpty() && this.length > 1) {
-                var _tmpEle = this.jqElements.pop();
+                var _tmpEle = this.jElements.pop();
                 this.length--;
                 this.index = this.length - 1;
                 this.parent.removeElement(_tmpEle);
@@ -691,11 +710,11 @@ define(["require", "exports"], function(require, exports) {
             }
         };
 
-        jqList.prototype.pullOutNext = function () {
+        JList.prototype.pullOutNext = function () {
             if (!this.isEmpty() && this.length > 1) {
                 var _tmpIndex = this.index;
                 this.index = this.index === this.length - 1 ? 0 : this.index++;
-                var _arrTmpEle = this.jqElements.splice(this.index, 1);
+                var _arrTmpEle = this.jElements.splice(this.index, 1);
                 this.length--;
                 this.index = _tmpIndex;
                 _tmpIndex = null;
@@ -706,11 +725,11 @@ define(["require", "exports"], function(require, exports) {
             }
         };
 
-        jqList.prototype.pullOutBack = function () {
+        JList.prototype.pullOutBack = function () {
             if (!this.isEmpty() && this.length > 1) {
                 var _tmpIndex = this.index;
                 this.index = this.index === 0 ? this.length - 1 : this.index--;
-                var _arrTmpEle = this.jqElements.splice(this.index, 1);
+                var _arrTmpEle = this.jElements.splice(this.index, 1);
                 this.length--;
                 this.index = _tmpIndex;
                 _tmpIndex = null;
@@ -721,12 +740,12 @@ define(["require", "exports"], function(require, exports) {
             }
         };
 
-        jqList.prototype.pullOutItem = function (_index) {
+        JList.prototype.pullOutItem = function (_index) {
             if (!this.isEmpty()) {
                 if (_index <= this.length && _index >= 0) {
                     this.index = _index;
                     _index = null;
-                    var _arrTmpEle = this.jqElements.splice(this.index, 1);
+                    var _arrTmpEle = this.jElements.splice(this.index, 1);
                     this.length--;
                     this.index = this.index === 0 ? this.length - 1 : this.index--;
                     this.parent.removeElement(_arrTmpEle[0]);
@@ -742,16 +761,16 @@ define(["require", "exports"], function(require, exports) {
             }
         };
 
-        jqList.prototype.remove = function (_element) {
+        JList.prototype.remove = function (_element) {
             if (!this.isEmpty()) {
                 if (this.length > 1) {
                     var _length = this.length;
 
                     for (var i = _length - 1; i >= 1; i--) {
-                        var _tmpElement = this.jqElements[i];
+                        var _tmpElement = this.jElements[i];
 
                         if (_tmpElement.equals(_element)) {
-                            this.jqElements.splice(i, 1);
+                            this.jElements.splice(i, 1);
                             this.length--;
                             this.index = this.index === 0 ? this.length - 1 : this.index--;
                             this.parent.removeElement(_element);
@@ -762,7 +781,7 @@ define(["require", "exports"], function(require, exports) {
                     }
                     _length = _element = null;
                 } else {
-                    this.jqElements.unshift();
+                    this.jElements.unshift();
                     this.length--;
                     this.index = -1;
                     this.parent.removeElement(_element);
@@ -771,12 +790,12 @@ define(["require", "exports"], function(require, exports) {
             }
         };
 
-        jqList.prototype.removeIndex = function (_index) {
+        JList.prototype.removeIndex = function (_index) {
             if (!this.isEmpty()) {
                 if (_index <= this.length && _index >= 0) {
                     this.index = _index;
                     _index = null;
-                    var _arrTmpEle = this.jqElements.splice(this.index, 1);
+                    var _arrTmpEle = this.jElements.splice(this.index, 1);
                     this.length--;
                     this.index = this.index === 0 ? this.length - 1 : this.index--;
                     this.parent.removeElement(_arrTmpEle[0]);
@@ -787,24 +806,24 @@ define(["require", "exports"], function(require, exports) {
             }
         };
 
-        jqList.prototype.removeAll = function () {
+        JList.prototype.removeAll = function () {
             if (!this.isEmpty()) {
                 this.parent.removeAllElements();
                 this.clear();
             }
         };
 
-        //clone() :jqList<JQ>{
+        //clone() :JList<JHtmlObject>{
         //    console.log(this);
         //    var _self = this;
         //    console.log(this);
-        //    var _tmpList = _self.jqElements;
+        //    var _tmpList = _self.jElements;
         //    var _length = _tmpList.length;
         //    var i = 0;
         //    _self.removeAll();
         //    while (i < _length) {
         //        var _element = _tmpList[i];
-        //        var _clone = <JQ>_element.cloneElement();
+        //        var _clone = <JHtmlObject>_element.cloneElement();
         //        _self.add(_clone);
         //        _element = _clone = null;
         //        i++;
@@ -812,23 +831,23 @@ define(["require", "exports"], function(require, exports) {
         //    _tmpList = _length = i = null;
         //    return _self;
         //}
-        jqList.prototype.clear = function () {
-            this.jqElements = [];
+        JList.prototype.clear = function () {
+            this.jElements = [];
             this.length = 0;
             this.index = -1;
         };
 
-        jqList.prototype.destroy = function () {
-            this.jqElements = null;
+        JList.prototype.destroy = function () {
+            this.jElements = null;
             this.length = null;
             this.index = null;
             this.parent = null;
         };
 
-        jqList.prototype.isEmpty = function () {
+        JList.prototype.isEmpty = function () {
             return this.length <= 0;
         };
-        return jqList;
+        return JList;
     })();
-    exports.jqList = jqList;
+    exports.JList = JList;
 });

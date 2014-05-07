@@ -34,10 +34,10 @@ export class JIcon extends HtmlObject.i {
         this.type = _type;
         switch (this.type) {
 
-            case jFontAwesome.LIST_ICONS:
+            case JFontAwesome.LIST_ICONS:
 
-                this.collectionClass.push(jFontAwesome.FA_LI);
-                this.collectionClass.push(jFontAwesome.FA);
+                this.collectionClass.push(JFontAwesome.FA_LI);
+                this.collectionClass.push(JFontAwesome.FA);
                 this.collectionClass.push(this.getjLabel());
 
                 this.addCollectionClass(this.collectionClass);
@@ -78,7 +78,7 @@ export class JIcon extends HtmlObject.i {
 * The complete set of 369 icons in Font Awesome 4.0.3
 **/
 
-export class jFontAwesome {
+export class JFontAwesome {
 
 
 	static FA = 'fa'
