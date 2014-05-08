@@ -1,3 +1,3 @@
-define(["require", "exports", './home/home'], function(require, exports, HomeMD) {
-    var _home = new HomeMD.home();
+define(["require", "exports"], function(require, exports) {
 });
+//var _home = new HomeMD.home();
