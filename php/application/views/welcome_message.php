@@ -8,13 +8,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Comunidad de centros comerciales">
     <meta name="author" content="Yonatan Alexis Quintero Rodriguez">
-    <link rel="shortcut icon" href="<?php echo base_url('ico/favicon.png');?>">
+    <link rel="shortcut icon" href="../public/ico/favicon.png">    
     
-    
-    <link href="<?php echo base_url('jquiro/theme/youshoopblue.css');?>" rel="stylesheet" type="text/css">
-    <link href="<?php echo base_url('jquiro/theme/jquiro.css');?>" rel="stylesheet" type="text/css">
-    <link href="<?php echo base_url('jquiro/theme/font-awesome.min.css');?>" rel="stylesheet" type="text/css">
-    <link href="<?php echo base_url('css/home.css');?>" rel="stylesheet" type="text/css">
+    <link href="../public/jquiro/theme/youshoopblue.css" rel="stylesheet" type="text/css">
+    <link href="../public/jquiro/theme/jquiro.css" rel="stylesheet" type="text/css">
+    <link href="../public/jquiro/theme/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="../public/css/home.css" rel="stylesheet" type="text/css">
 
     
 </head>
@@ -68,7 +67,7 @@
                       
                          <div class="col-md-12">
                                
-                               <img alt="youshoop" class="logo" src="<?php echo base_url('img/logo/yuoshoop-04.png');?> "/> 
+                               <img alt="youshoop" class="logo" src="../public/img/logo/yuoshoop-04.png "/> 
                                <a href="#">Centros Comerciales.&nbsp;&nbsp;</a>   
                                <a href="#">Tiendas.&nbsp;&nbsp;</a>   
                                <a href="#">Sobre Nosotros.&nbsp;&nbsp;</a>   
@@ -162,7 +161,7 @@
 			  
 				    <div class="thumbnail">
 				    
-				      <img src="<?php echo base_url('img/stores/store-1.jpg');?>" alt="Tienda demo 1" />
+				      <img src="../public/img/stores/store-1.jpg" alt="Tienda demo 1" />
 				      
 				      <div class="caption">
 				      
@@ -185,7 +184,7 @@
 			  
 				    <div class="thumbnail">
 				    
-				      <img src="<?php echo base_url('img/stores/store-2.jpg');?>" alt="Tienda demo 2" />
+				      <img src="../public/img/stores/store-2.jpg" alt="Tienda demo 2" />
 				      
 				      <div class="caption">
 				      
@@ -208,7 +207,7 @@
 			  
 				    <div class="thumbnail">
 				    
-				      <img src="<?php echo base_url('img/stores/store-3.jpg');?>" alt="Tienda demo 3" />
+				      <img src="../public/img/stores/store-3.jpg" alt="Tienda demo 3" />
 				      
 				      <div class="caption">
 				      
@@ -231,7 +230,7 @@
 			  
 				    <div class="thumbnail">
 				    
-				      <img src="<?php echo base_url('img/stores/store-4.jpg');?>" alt="Tienda demo 3" />
+				      <img src="../public/img/stores/store-4.jpg" alt="Tienda demo 3" />
 				      
 				      <div class="caption">
 				      
@@ -254,7 +253,7 @@
 			  
 				    <div class="thumbnail">
 				    
-				      <img src="<?php echo base_url('img/stores/store-5.jpg');?>" alt="Tienda demo 5" />
+				      <img src="../public/img/stores/store-5.jpg" alt="Tienda demo 5" />
 				      
 				      <div class="caption">
 				      
@@ -277,7 +276,7 @@
 			  
 				    <div class="thumbnail">
 				    
-				      <img src="<?php echo base_url('img/stores/store-6.jpg');?>" alt="Tienda demo 6" />
+				      <img src="../public/img/stores/store-6.jpg" alt="Tienda demo 6" />
 				      
 				      <div class="caption">
 				      
@@ -304,7 +303,7 @@
 			  
 				    <div class="thumbnail">
 				    
-				      <img src="<?php echo base_url('img/stores/store-7.jpg');?>" alt="Tienda demo 7" />
+				      <img src="../public/img/stores/store-7.jpg" alt="Tienda demo 7" />
 				      
 				      <div class="caption">
 				      
@@ -327,7 +326,7 @@
 			  
 				    <div class="thumbnail">
 				    
-				      <img src="<?php echo base_url('img/stores/store-8.jpg');?>" alt="Tienda demo 8" />
+				      <img src="../public/img/stores/store-8.jpg" alt="Tienda demo 8" />
 				      
 				      <div class="caption">
 				      
@@ -350,7 +349,7 @@
 			  
 				    <div class="thumbnail">
 				    
-				      <img src="<?php echo base_url('img/stores/store-9.jpg');?>" alt="Tienda demo 9" />
+				      <img src="../public/img/stores/store-9.jpg" alt="Tienda demo 9" />
 				      
 				      <div class="caption">
 				      
@@ -373,7 +372,7 @@
 			  
 				    <div class="thumbnail">
 				    
-				      <img src="<?php echo base_url('img/stores/store-10.jpg');?>" alt="Tienda demo 10" />
+				      <img src="../public/img/stores/store-10.jpg" alt="Tienda demo 10" />
 				      
 				      <div class="caption">
 				      
@@ -396,7 +395,7 @@
 			  
 				    <div class="thumbnail">
 				    
-				      <img src="<?php echo base_url('img/stores/store-11.jpg');?>" alt="Tienda demo 11" />
+				      <img src="../public/img/stores/store-11.jpg" alt="Tienda demo 11" />
 				      
 				      <div class="caption">
 				      
@@ -419,7 +418,7 @@
 			  
 				    <div class="thumbnail">
 				    
-				      <img src="<?php echo base_url('img/stores/store-12.jpg');?>" alt="Tienda demo 12" />
+				      <img src="../public/img/stores/store-12.jpg" alt="Tienda demo 12" />
 				      
 				      <div class="caption">
 				      
@@ -445,7 +444,7 @@
 			  
 				    <div class="thumbnail">
 				    
-				      <img src="<?php echo base_url('img/stores/store-13.jpg');?>" alt="Tienda demo 13" />
+				      <img src="../public/img/stores/store-13.jpg" alt="Tienda demo 13" />
 				      
 				      <div class="caption">
 				      
@@ -468,7 +467,7 @@
 			  
 				    <div class="thumbnail">
 				    
-				      <img src="<?php echo base_url('img/stores/store-14.jpg');?>" alt="Tienda demo 2" />
+				      <img src="../public/img/stores/store-14.jpg" alt="Tienda demo 2" />
 				      
 				      <div class="caption">
 				      
@@ -491,7 +490,7 @@
 			  
 				    <div class="thumbnail">
 				    
-				      <img src="<?php echo base_url('img/stores/store-3.jpg');?>" alt="Tienda demo 3" />
+				      <img src="../public/img/stores/store-3.jpg" alt="Tienda demo 3" />
 				      
 				      <div class="caption">
 				      
@@ -514,7 +513,7 @@
 			  
 				    <div class="thumbnail">
 				    
-				      <img src="<?php echo base_url('img/stores/store-4.jpg');?>" alt="Tienda demo 3" />
+				      <img src="../public/img/stores/store-4.jpg" alt="Tienda demo 3" />
 				      
 				      <div class="caption">
 				      
@@ -537,7 +536,7 @@
 			  
 				    <div class="thumbnail">
 				    
-				      <img src="<?php echo base_url('img/stores/store-5.jpg');?>" alt="Tienda demo 5" />
+				      <img src="../public/img/stores/store-5.jpg" alt="Tienda demo 5" />
 				      
 				      <div class="caption">
 				      
@@ -560,7 +559,7 @@
 			  
 				    <div class="thumbnail">
 				    
-				      <img src="<?php echo base_url('img/stores/store-6.jpg');?>" alt="Tienda demo 6" />
+				      <img src="../public/img/stores/store-6.jpg" alt="Tienda demo 6" />
 				      
 				      <div class="caption">
 				      
@@ -587,7 +586,7 @@
 			  
 				    <div class="thumbnail">
 				    
-				      <img src="<?php echo base_url('img/stores/store-7.jpg');?>" alt="Tienda demo 7" />
+				      <img src="../public/img/stores/store-7.jpg" alt="Tienda demo 7" />
 				      
 				      <div class="caption">
 				      
@@ -610,7 +609,7 @@
 			  
 				    <div class="thumbnail">
 				    
-				      <img src="<?php echo base_url('img/stores/store-8.jpg');?>" alt="Tienda demo 8" />
+				      <img src="../public/img/stores/store-8.jpg" alt="Tienda demo 8" />
 				      
 				      <div class="caption">
 				      
@@ -633,7 +632,7 @@
 			  
 				    <div class="thumbnail">
 				    
-				      <img src="<?php echo base_url('img/stores/store-9.jpg');?>" alt="Tienda demo 9" />
+				      <img src="../public/img/stores/store-9.jpg" alt="Tienda demo 9" />
 				      
 				      <div class="caption">
 				      
@@ -656,7 +655,7 @@
 			  
 				    <div class="thumbnail">
 				    
-				      <img src="<?php echo base_url('img/stores/store-10.jpg');?>" alt="Tienda demo 10" />
+				      <img src="../public/img/stores/store-10.jpg" alt="Tienda demo 10" />
 				      
 				      <div class="caption">
 				      
@@ -679,7 +678,7 @@
 			  
 				    <div class="thumbnail">
 				    
-				      <img src="<?php echo base_url('img/stores/store-11.jpg');?>" alt="Tienda demo 11" />
+				      <img src="../public/img/stores/store-11.jpg" alt="Tienda demo 11" />
 				      
 				      <div class="caption">
 				      
@@ -702,7 +701,7 @@
 			  
 				    <div class="thumbnail">
 				    
-				      <img src="<?php echo base_url('img/stores/store-12.jpg');?>" alt="Tienda demo 12" />
+				      <img src="../public/img/stores/store-12.jpg" alt="Tienda demo 12" />
 				      
 				      <div class="caption">
 				      
@@ -729,7 +728,7 @@
 			  
 				    <div class="thumbnail">
 				    
-				      <img src="<?php echo base_url('img/stores/store-1.jpg');?>" alt="Tienda demo 1" />
+				      <img src="../public/img/stores/store-1.jpg" alt="Tienda demo 1" />
 				      
 				      <div class="caption">
 				      
@@ -752,7 +751,7 @@
 			  
 				    <div class="thumbnail">
 				    
-				      <img src="<?php echo base_url('img/stores/store-2.jpg');?>" alt="Tienda demo 2" />
+				      <img src="../public/img/stores/store-2.jpg" alt="Tienda demo 2" />
 				      
 				      <div class="caption">
 				      
@@ -775,7 +774,7 @@
 			  
 				    <div class="thumbnail">
 				    
-				      <img src="<?php echo base_url('img/stores/store-3.jpg');?>" alt="Tienda demo 3" />
+				      <img src="../public/img/stores/store-3.jpg" alt="Tienda demo 3" />
 				      
 				      <div class="caption">
 				      
@@ -798,7 +797,7 @@
 			  
 				    <div class="thumbnail">
 				    
-				      <img src="<?php echo base_url('img/stores/store-4.jpg');?>" alt="Tienda demo 3" />
+				      <img src="../public/img/stores/store-4.jpg" alt="Tienda demo 3" />
 				      
 				      <div class="caption">
 				      
@@ -821,7 +820,7 @@
 			  
 				    <div class="thumbnail">
 				    
-				      <img src="<?php echo base_url('img/stores/store-5.jpg');?>" alt="Tienda demo 5" />
+				      <img src="../public/img/stores/store-5.jpg" alt="Tienda demo 5" />
 				      
 				      <div class="caption">
 				      
@@ -844,7 +843,7 @@
 			  
 				    <div class="thumbnail">
 				    
-				      <img src="<?php echo base_url('img/stores/store-6.jpg');?>" alt="Tienda demo 6" />
+				      <img src="../public/img/stores/store-6.jpg" alt="Tienda demo 6" />
 				      
 				      <div class="caption">
 				      
@@ -871,7 +870,7 @@
 			  
 				    <div class="thumbnail">
 				    
-				      <img src="<?php echo base_url('img/stores/store-7.jpg');?>" alt="Tienda demo 7" />
+				      <img src="../public/img/stores/store-7.jpg" alt="Tienda demo 7" />
 				      
 				      <div class="caption">
 				      
@@ -894,7 +893,7 @@
 			  
 				    <div class="thumbnail">
 				    
-				      <img src="<?php echo base_url('img/stores/store-8.jpg');?>" alt="Tienda demo 8" />
+				      <img src="../public/img/stores/store-8.jpg" alt="Tienda demo 8" />
 				      
 				      <div class="caption">
 				      
@@ -917,7 +916,7 @@
 			  
 				    <div class="thumbnail">
 				    
-				      <img src="<?php echo base_url('img/stores/store-9.jpg');?>" alt="Tienda demo 9" />
+				      <img src="../public/img/stores/store-9.jpg" alt="Tienda demo 9" />
 				      
 				      <div class="caption">
 				      
@@ -940,7 +939,7 @@
 			  
 				    <div class="thumbnail">
 				    
-				      <img src="<?php echo base_url('img/stores/store-10.jpg');?>" alt="Tienda demo 10" />
+				      <img src="../public/img/stores/store-10.jpg" alt="Tienda demo 10" />
 				      
 				      <div class="caption">
 				      
@@ -963,7 +962,7 @@
 			  
 				    <div class="thumbnail">
 				    
-				      <img src="<?php echo base_url('img/stores/store-11.jpg');?>" alt="Tienda demo 11" />
+				      <img src="../public/img/stores/store-11.jpg" alt="Tienda demo 11" />
 				      
 				      <div class="caption">
 				      
@@ -986,7 +985,7 @@
 			  
 				    <div class="thumbnail">
 				    
-				      <img src="<?php echo base_url('img/stores/store-12.jpg');?>" alt="Tienda demo 12" />
+				      <img src="../public/img/stores/store-12.jpg" alt="Tienda demo 12" />
 				      
 				      <div class="caption">
 				      
@@ -1012,7 +1011,7 @@
 			  
 				    <div class="thumbnail">
 				    
-				      <img src="<?php echo base_url('img/stores/store-13.jpg');?>" alt="Tienda demo 13" />
+				      <img src="../public/img/stores/store-13.jpg" alt="Tienda demo 13" />
 				      
 				      <div class="caption">
 				      
@@ -1035,7 +1034,7 @@
 			  
 				    <div class="thumbnail">
 				    
-				      <img src="<?php echo base_url('img/stores/store-14.jpg');?>" alt="Tienda demo 2" />
+				      <img src="../public/img/stores/store-14.jpg" alt="Tienda demo 2" />
 				      
 				      <div class="caption">
 				      
@@ -1058,7 +1057,7 @@
 			  
 				    <div class="thumbnail">
 				    
-				      <img src="<?php echo base_url('img/stores/store-3.jpg');?>" alt="Tienda demo 3" />
+				      <img src="../public/img/stores/store-3.jpg" alt="Tienda demo 3" />
 				      
 				      <div class="caption">
 				      
@@ -1081,7 +1080,7 @@
 			  
 				    <div class="thumbnail">
 				    
-				      <img src="<?php echo base_url('img/stores/store-4.jpg');?>" alt="Tienda demo 3" />
+				      <img src="../public/img/stores/store-4.jpg" alt="Tienda demo 3" />
 				      
 				      <div class="caption">
 				      
@@ -1104,7 +1103,7 @@
 			  
 				    <div class="thumbnail">
 				    
-				      <img src="<?php echo base_url('img/stores/store-5.jpg');?>" alt="Tienda demo 5" />
+				      <img src="../public/img/stores/store-5.jpg" alt="Tienda demo 5" />
 				      
 				      <div class="caption">
 				      
@@ -1127,7 +1126,7 @@
 			  
 				    <div class="thumbnail">
 				    
-				      <img src="<?php echo base_url('img/stores/store-6.jpg');?>" alt="Tienda demo 6" />
+				      <img src="../public/img/stores/store-6.jpg" alt="Tienda demo 6" />
 				      
 				      <div class="caption">
 				      
@@ -1148,13 +1147,13 @@
 			  
            </div>
            
-         <div class="row">
+         
 
      </section>
      
      
      
-    <script src="<?php echo base_url('jquiro/dep/require.js');?>" data-main="<?php echo base_url('jquiro/app/main.js');?>"></script>
+    <script src="../public/jquiro/dep/require.js" data-main="../public/jquiro/app/main.js"></script>
     
 </body>
 </html>
