@@ -1,17 +1,24 @@
 @CHARSET "ISO-8859-1";
-.logo-header{
+.logo{
 	
-	height: 5em;
-    width: 35em;
+    height: 1.5em;
+    margin-left: 0.1em;
+    margin-right: 1em;
+    width: 1.5em;
 }
 
 .bg-blue{
 	
 	background-color: #3661B1;
-	height: 600px;
+	padding: 1em;
 	
 }
-
+.bg-blue img{
+	
+	height: 5em;
+    width: 12em;	
+	
+} 
 .text-inverse-blue{
 	
 	color: #fff;
@@ -23,6 +30,8 @@
 	 width: 100%;
 }
 
+
+
 .menuFooter a{
 	
 	font-size: 12px;
@@ -31,10 +40,13 @@
 
 .jumbotron-form{
 	
-	 padding: 15px 25px;
-	   background-color: #3661B1;
+	padding: 15px 25px;
+	background-color: #3661B1;
     color: #FFA500;
     margin-bottom: 15px;
-
 	 
+}
+
+.text-md{
+	font-size: 12px;
 }
