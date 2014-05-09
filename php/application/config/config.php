@@ -14,7 +14,8 @@
 | path to your installation.
 |
 */
-$config['base_url']	= '';
+$config['base_url']	= 'http' . (isset($_SERVER['HTTPS']) ? 's' : '' ) . '://' .$_SERVER['HTTP_HOST'] . '/app-youshoop/public/';
+
 
 /*
 |--------------------------------------------------------------------------

@@ -2,6 +2,7 @@
 
 class Welcome extends CI_Controller {
 
+	 
 	/**
 	 * Index Page for this controller.
 	 *
@@ -19,8 +20,11 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
+		$this->load->helper('url');
+		
 		$this->load->view('welcome_message');
-	}
+	}	
+
 }
 
 /* End of file welcome.php */
