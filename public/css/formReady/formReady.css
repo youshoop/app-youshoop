@@ -1,0 +1,32 @@
+/*************************************************************
+ * 
+ * jQuery formReady Plugin - Formulario de validación
+ --------------------------------------------- 
+ * Version 0.1 - 26. May 2013
+ * Document   : jQuery.formReady.js
+ * Created on : 26-may-2013
+ * Author     : Yonatan Alexis Quintero Rodriguez
+ * Copyright (c) 2012 by Yonatan Alexis Quintero Rodriguez 
+ * yonatanalexis22@hotmail.com
+ **************************************************************/
+
+
+
+.formReadyError span{
+    
+    padding: 4px;
+    color: #000;
+    border:solid 1px #ff0000;
+    background-color: #ff9999;
+    opacity:0;
+    
+}
+
+.formReadyError img{    
+    padding: 2px;
+    position: relative;
+    width:18px;
+    height:18px; 
+    top:5px;    
+}
+
