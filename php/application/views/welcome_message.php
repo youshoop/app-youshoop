@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+
     <title>Welcome YonaxTics</title>
+
     
  
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -32,7 +34,9 @@
                       
                     <div class="jumbotron">
                                                   
+
                             <h1><strong>Hello, I'm Yonatan A. Quintero R.</strong></h1>
+
                               
                                <h5 class="text-inverse-blue">
                                
@@ -56,6 +60,7 @@
                       
                          <div class="col-md-12">
                                
+
                                
                                <a href="<?php echo base_url('php/');?>">Home.&nbsp;&nbsp;</a> 
                                <a href="<?php echo base_url('php/index.php/project/show_projects');?>">Projects.&nbsp;&nbsp;</a>     
@@ -63,6 +68,7 @@
 
 
                                <span class="pull-right">&copy; 2014 YonaxTics</span>  
+
                                
                          </div>                            
                                                               
@@ -77,6 +83,7 @@
           
      </header>
      
+
      <section>
         
          <hr>
@@ -105,6 +112,7 @@
                </div>
                
          </div>
+
      </section>
      
 
